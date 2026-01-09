@@ -137,12 +137,6 @@ Progressively responsible roles building enterprise applications, leading develo
 
 **B.S., Business Administration — University of Texas at Dallas**
 
----
-
-## ADDITIONAL INFORMATION
-
-Portfolio and technical write-ups available at https://raines.io
-
 
 ## License
 All rights reserved.
