@@ -1,0 +1,1 @@
+use rule conventional-commits.mdc to make a git commit for current changes.  Always add new files to the commit message.  And always use the appropriate emoji for the commit message. after the commit message, add the command to push the changes to the remote repository.

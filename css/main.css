@@ -473,12 +473,49 @@ html[data-useragent*='MSIE 10.0'] .scrolldown,
     clear: both;
 }
 
-/******** ABOUT SECTION START ********/
-
-.about {
+section {
     padding: 130px 0;
+    margin-bottom: 0;
     border-bottom: 1px solid #dcdcdc;
 }
+
+section .text-wrapper {
+    padding: 0 30px 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+section h3 {
+    font-size: 16pt;
+    font-weight: 700;
+    letter-spacing: 0.4pt;
+    color: #000000;
+}
+
+section h5 {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1pt;
+    margin-top: 20px;
+}
+
+section p {
+    font-size: 11pt;
+    letter-spacing: 1pt;
+    line-height: 19pt;
+    margin: 0 auto;
+    padding-top: 10px;
+    color: #3B3B3B;
+}
+
+section p:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/******** ABOUT SECTION START ********/
+
 
 .about-photo {
     text-align: center;
@@ -502,41 +539,6 @@ html[data-useragent*='MSIE 10.0'] .scrolldown,
     z-index: 1;
 }
 
-.about .text-wrapper {
-    padding: 0 30px 30px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.about h3 {
-    font-size: 16pt;
-    font-weight: 700;
-    letter-spacing: 0.4pt;
-    color: #000000;
-}
-
-.about h5 {
-    font-size: 9pt;
-    font-weight: 700;
-    letter-spacing: 1pt;
-    margin-top: 20px;
-}
-
-.about p {
-    font-size: 11pt;
-    letter-spacing: 1pt;
-    line-height: 19pt;
-    margin: 0 auto;
-    padding-top: 10px;
-    color: #3B3B3B;
-}
-
-.about p:first-of-type {
-    padding-top: 0;
-    margin-top: 0;
-}
-
 .about-highlights {
     margin: 15px 0 10px 0;
     padding-left: 20px;
@@ -551,7 +553,7 @@ html[data-useragent*='MSIE 10.0'] .scrolldown,
 
 .social-icons {
     margin-top: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .social-icons ul {
@@ -643,11 +645,6 @@ tr > td:nth-child(2) {
 
 /******** SKILLS SECTION START ********/
 
-.skill {
-    padding: 130px 0;
-    border-bottom: 1px solid #dcdcdc;
-}
-
 .skill-cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -735,51 +732,9 @@ tr > td:nth-child(2) {
     }
 }
 
-/******** SERVICES SECTION START ********/
-
-.services {
-    padding: 130px 0;
-    border-bottom: 1px solid #dcdcdc;
-}
-
-.services .services-detail {
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    top: 0px;
-    padding: 50px 0px;
-}
-
-.services .services-detail .fa {
-    font-size: 30px;
-    color: #ff8c42;
-}
-
-.services-detail h5 {
-    color: #1b1b1b;
-    font-size: 14pt;
-    font-weight: 700;
-    letter-spacing: 1pt;
-    margin-top: 17px;
-}
-
-.services hr {
-    width: 25px;
-    height: 1px;
-}
-
-.services-detail p {
-    color: #888;
-    font-size: 12pt;
-    letter-spacing: 0.4pt;
-}
-
 /******** RESUME SECTION START ********/
 
-.resume {
-    padding: 110px 0 120px 0;
-    border-bottom: 1px solid #dcdcdc;
-}
+
 
 .padding-top {
     padding-top: 50px;
@@ -1061,6 +1016,7 @@ tr > td:nth-child(2) {
 
 .clients {
     padding: 130px 0;
+    margin-bottom: 0;
     border-bottom: 1px solid #dcdcdc;
 }
 
@@ -1108,6 +1064,7 @@ tr > td:nth-child(2) {
     width: 100px;
     border-radius: 180px;
     margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .swiper-wrapper .review-wrap {
@@ -1125,7 +1082,10 @@ tr > td:nth-child(2) {
 
 .swiper-wrapper .review-text {
     margin-top: -18px;
-    padding: 30px 19px 25px 19px;
+    padding-top: 25px !important;
+    padding-right: 19px;
+    padding-bottom: 25px;
+    padding-left: 19px;
     font-size: 11pt;
     font-weight: 300;
     letter-spacing: 1pt;
@@ -1219,21 +1179,29 @@ tr > td:nth-child(2) {
 
 .contact {
     padding: 130px 0;
+    margin-bottom: 0;
     border-bottom: 1px solid #dcdcdc;
 }
+
 
 .contact-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 24px 32px;
-    align-items: flex-start;
+    align-items: stretch;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .card-contact {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    flex: 1 1 calc(20% - 26px);
     min-width: 180px;
+    max-width: 220px;
+    text-align: left;
+    align-items: flex-start;
 }
 
 .card-contact i {
@@ -1252,6 +1220,17 @@ tr > td:nth-child(2) {
 .card-contact h4 {
     margin-top: 0;
     margin-bottom: 2px;
+}
+
+.card-contact p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.card-contact a {
+    text-align: left;
+    display: inline-block;
 }
 
 .contact-intro p {
@@ -1344,12 +1323,22 @@ tr > td:nth-child(2) {
 
 /******** FOOTER SECTION START ********/
 
+footer {
+    padding: 15px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+footer .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 footer h4 {
     font-size: 8pt;
     letter-spacing: 1pt;
-    margin: 80px auto;
+    margin: 0;
     color: #1b1b1b;
-
 }
 
 /******** RESPONSIVE SECTION START ********/
