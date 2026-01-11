@@ -6,9 +6,9 @@ Plano, TX | (214) 707-0983 | brian@raines.io | https://raines.io
 
 ## PROFESSIONAL SUMMARY
 
-Software Engineer with over 25 years of experience designing, building, and scaling complex web-based applications and distributed systems. Known for bringing clarity to complexity, shaping technical direction through hands-on engineering, and building systems that endure. Mentor engineers who grow and establish standards that raise the technical bar across teams.
+Software Engineer with 25+ years designing, building, and scaling complex web-based applications and distributed systems. I bring clarity to ambiguity, define technical direction through hands-on engineering, and build systems that endure.
 
-Equally comfortable designing architectures and writing code, translating complexity into simplicity through thoughtful design and pragmatic execution. Driven by craftsmanship and curiosity, thrive in environments where deep technical work, mentorship, and shared ownership of outcomes define success.
+Equally comfortable designing architectures and writing code, I translate intricate problems into simplicity through thoughtful design and pragmatic execution. I thrive where deep technical work, mentorship, and shared ownership of outcomes define success.
 
 ---
 
