@@ -79,7 +79,7 @@ $(document) .ready(function() {
 
   /* About Photo */
   // get a number between 1 and 10
-  var aboutPhotoNumber = Math.floor(Math.random() * 9) + 1;
+  var aboutPhotoNumber = Math.floor(Math.random() * 10) + 1;
   // set the background image to the new image with an ease in and out effect
   document.querySelector('.about-photo img').src = 'img/bulldog/' + aboutPhotoNumber + '.png';
 
