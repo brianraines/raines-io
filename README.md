@@ -33,11 +33,25 @@ Java • Python • Node.js • PHP • JavaScript/TypeScript • Modern framewo
 
 ## PROFESSIONAL EXPERIENCE
 
+### Property Vista — Dallas, TX
+
+**Principal Software Engineer | 2026 — Present**
+
+Property Vista is a property management software solution that transforms how property managers manage their properties and build tenant relationships.
+
 ### Turnitin — Dallas, TX
 
-**Distinguished Software Engineer | 2022 — Present**
+**Distinguished Software Engineer | 2022 — 2026**
+
 **Principal Software Engineer | 2021 — 2022**
 
+Built and evolved cloud-native, serverless platforms at global scale, defining architecture patterns, and development standards through working systems now used company-wide.
+
+**Organizational Impact:**
+
+- Author and implement SAM driven serverless patterns through working systems that have become the organizational standard.
+- Mentor engineers across multiple teams on distributed systems, DynamoDB modeling, and event-driven design.
+- Partner with engineering leadership on technical strategy and platform architecture decisions.
 Built and evolved cloud-native, serverless platforms at global scale, defining architecture patterns, and development standards through working systems now used company-wide.
 
 **Organizational Impact:**
@@ -48,7 +62,7 @@ Built and evolved cloud-native, serverless platforms at global scale, defining a
 
 **Award:** 2024 Values Champion Regional Winner: Americas “Action and Ownership, One Team”
 
-#### Paper to Digital Platform (2022 — Present)
+#### Paper to Digital Platform (2022 — 2026)
 
 Developed an AI-powered extension to Turnitin Feedback Studio that expanded assessment capabilities beyond digital submissions to include paper-based evaluations featuring short answers, multiple choice, handwritten diagrams, and mathematical equations. The solution combined serverless architecture, real-time collaboration, and secure AI/OCR workflows to deliver scalable compliant performance.
 
