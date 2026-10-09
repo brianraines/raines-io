@@ -477,6 +477,22 @@ test('page title, social titles, profile data and contact card all say Engineer 
   expect(vcard).toMatch(/^TITLE:Engineer & Architect\r?$/m);
 });
 
+test('web app manifest names Brian as an Engineer & Architect and its icons are served', async ({ page, request }) => {
+  await page.goto('/');
+  const href = await page.locator('link[rel="manifest"]').getAttribute('href');
+  const response = await request.get(new URL(href, page.url()).href);
+  expect(response.ok()).toBe(true);
+  const manifest = await response.json();
+  expect(manifest.name).toBe('Brian Raines - Engineer & Architect');
+  expect(manifest.short_name).toBe('Brian Raines');
+  expect(manifest.icons.length).toBeGreaterThan(0);
+  for (const icon of manifest.icons) {
+    const iconResponse = await request.get(new URL(icon.src, page.url()).href);
+    expect(iconResponse.ok(), icon.src).toBe(true);
+    expect(iconResponse.headers()['content-type'], icon.src).toMatch(/^image\//);
+  }
+});
+
 test('social previews and structured profile data are usable', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle(/Brian Raines/);
