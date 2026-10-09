@@ -48,10 +48,16 @@ $(document) .ready(function() {
        hoveredCard = card;
        updateAutoplay();
      });
-     card.addEventListener('mouseleave', function() {
+     card.addEventListener('mouseleave', function(event) {
+       // Moving to another part of the carousel, such as the next card, is not leaving it.
+       if (event.relatedTarget && swiper.el.contains(event.relatedTarget)) return;
        if (hoveredCard === card) hoveredCard = null;
        updateAutoplay();
      });
+   });
+   swiper.el.addEventListener('mouseleave', function() {
+     hoveredCard = null;
+     updateAutoplay();
    });
    swiper.el.addEventListener('focusin', function(event) {
      var slide = event.target.closest('.swiper-slide');

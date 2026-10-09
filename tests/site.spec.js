@@ -11,6 +11,30 @@ test.beforeEach(async ({ page, baseURL }) => {
   });
 });
 
+// Slides move with real-time CSS transitions while the page clock is faked. Wait for the
+// transitions to finish, then measure how much of a card sits inside the carousel, so results
+// do not depend on an IntersectionObserver frame arriving in time on a loaded machine.
+const settleTransitions = (page) => page.evaluate(() =>
+  Promise.all(document.getAnimations()
+    .filter((animation) => animation instanceof CSSTransition)
+    .map((animation) => animation.finished.catch(() => {}))));
+
+const carouselOverlap = (card) => card.evaluate((element) => {
+  const carousel = element.closest('.swiper').getBoundingClientRect();
+  const box = element.getBoundingClientRect();
+  return Math.max(0, Math.min(box.right, carousel.right) - Math.max(box.left, carousel.left)) / box.width;
+});
+
+async function expectShown(page, card) {
+  await settleTransitions(page);
+  await expect.poll(() => carouselOverlap(card)).toBeGreaterThanOrEqual(0.9);
+}
+
+async function expectHidden(page, card) {
+  await settleTransitions(page);
+  await expect.poll(() => carouselOverlap(card)).toBeLessThan(0.1);
+}
+
 test('site initializes without JavaScript errors or failed local requests', async ({ page, baseURL }) => {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -295,7 +319,7 @@ test('recommendation cards remain visible while using the keyboard', async ({ pa
   for (const link of await links.all()) {
     await expect(link).toBeFocused();
     await page.clock.runFor(5000);
-    await expect(link).toBeInViewport({ ratio: 0.9 });
+    await expectShown(page, link);
     expect(await link.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
     await page.keyboard.press('Tab');
   }
@@ -315,12 +339,12 @@ test('carousel pauses on card hover and advances immediately after the pointer l
     .getByRole('link', { name: /Read recommendation by Brandon Morrill/ });
   await card.hover();
   await page.clock.runFor(10000);
-  await expect(card).toBeInViewport({ ratio: 0.9 });
+  await expectShown(page, card);
   await page.getByRole('heading', { name: 'What People Say', exact: true }).hover();
   // Complete the slide transition without waiting for the four-second autoplay delay.
   await page.clock.runFor(350);
-  await expect(page.getByRole('link', { name: /Read recommendation by Max Gonzalez/ })).toBeInViewport({ ratio: 0.9 });
-  await expect(card).not.toBeInViewport();
+  await expectShown(page, page.getByRole('link', { name: /Read recommendation by Max Gonzalez/ }));
+  await expectHidden(page, card);
 });
 
 for (const leavesFirst of ['hover', 'focus']) {
@@ -343,11 +367,11 @@ for (const leavesFirst of ['hover', 'focus']) {
     };
     await leave(leavesFirst);
     await page.clock.runFor(6000);
-    await expect(card).toBeInViewport({ ratio: 0.9 });
+    await expectShown(page, card);
     await leave(leavesFirst === 'hover' ? 'focus' : 'hover');
     await page.clock.runFor(350);
-    await expect(page.getByRole('link', { name: /Read recommendation by Max Gonzalez/ })).toBeInViewport({ ratio: 0.9 });
-    await expect(card).not.toBeInViewport();
+    await expectShown(page, page.getByRole('link', { name: /Read recommendation by Max Gonzalez/ }));
+    await expectHidden(page, card);
   });
 }
 
@@ -361,13 +385,13 @@ test('carousel advances on keyboard blur and wraps after the last recommendation
     .getByRole('link', { name: /Read recommendation by .+ on LinkedIn/ });
   await cards.last().focus();
   await page.clock.runFor(5000);
-  await expect(cards.last()).toBeInViewport({ ratio: 0.9 });
+  await expectShown(page, cards.last());
   await page.getByRole('link', { name: 'Brian Raines - Home', exact: true }).focus();
   await page.clock.runFor(350);
-  await expect(cards.first()).toBeInViewport({ ratio: 0.9 });
+  await expectShown(page, cards.first());
   // Normal autoplay continues after the immediate advance.
   await page.clock.runFor(4500);
-  await expect(cards.first()).not.toBeInViewport();
+  await expectHidden(page, cards.first());
 });
 
 test('carousel stays paused when the pointer moves between visible cards', async ({ page }) => {
@@ -382,11 +406,11 @@ test('carousel stays paused when the pointer moves between visible cards', async
   await cards.nth(0).hover();
   await cards.nth(1).hover();
   await page.clock.runFor(6000);
-  await expect(cards.nth(0)).toBeInViewport({ ratio: 0.9 });
-  await expect(cards.nth(1)).toBeInViewport({ ratio: 0.9 });
+  await expectShown(page, cards.nth(0));
+  await expectShown(page, cards.nth(1));
   await page.getByRole('heading', { name: 'What People Say', exact: true }).hover();
   await page.clock.runFor(350);
-  await expect(cards.nth(0)).not.toBeInViewport();
+  await expectHidden(page, cards.nth(0));
 });
 
 for (const { link, filename, signature } of [
