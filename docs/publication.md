@@ -194,3 +194,11 @@ Released `releases/release-compress-images-20261009` on October 9, 2026. The pri
 The nine rotating hero PNGs (about 52 MB combined) became 1920px WebP files (about 2.2 MB combined, largest 512 KB), referenced from `js/main.js` and the `css/main.css` fallback keyframes. Bulldog photos 10 and 11 shrank from about 2.4 and 2.8 MB to about 250 and 220 KB. The old hero PNGs were removed from the new release only; the prior release keeps them. Changed public files: `js/main.js`, `css/main.css`, nine `img/hero/*.webp`, and `img/bulldog/10.png` and `11.png`.
 
 Before switching, all 17 staged remote files matched the local repository byte for byte. After switching, the public verifier passed all 16 manifest artifacts on both raines.io and www.raines.io, and all nine WebP files returned 200 `image/webp` at the expected sizes while the old PNG returned 404. Local verification was 52 passing browser tests (one mobile carousel hover test failed once under full-suite load and passed on rerun and in isolation) plus the manifest check.
+
+## Title and metadata alignment
+
+Released `releases/release-title-metadata-20261009` on October 9, 2026. The prior `releases/release-compress-images-20261009` remains intact for rollback; restore it through the same atomic symlink procedure if needed.
+
+The page `<title>`, `meta name="title"`, `og:title`, `twitter:title`, the Person `jobTitle` in the JSON-LD and the vCard `TITLE` now read Engineer & Architect, matching the hero. The meta, Open Graph and JSON-LD descriptions keep the resume summary wording, `hasOccupation.name` stays Software Engineer as the occupation category, and employment titles are unchanged. Changed public files: `index.html` and `vcard/Brian_Raines.vcf`.
+
+Before switching, all 15 staged remote files matched the local repository byte for byte. After switching, the public verifier passed all 16 manifest artifacts on both raines.io and www.raines.io, and the served title, social titles, JSON-LD jobTitle and vCard title were read back from the live site. Local verification was 54 passing browser tests plus the manifest check. Social-platform preview caches were not refreshed.
