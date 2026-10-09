@@ -186,3 +186,11 @@ Released `releases/release-engineer-architect-20261009110159` on October 9, 2026
 The hero and About Role row now read Engineer & Architect, the About section gains an Open to line for Staff, Principal and Distinguished roles or engineering management, and `og:image`/`twitter:image` use the new 1200x630 `img/og-card.jpg` instead of the square logo. The page title, meta descriptions, structured data and vCard title are unchanged. Changed public files: `index.html` and `img/og-card.jpg`.
 
 Before switching, all six staged remote files matched the reviewed manifest. After switching, the public verifier passed all seven artifacts on both raines.io and www.raines.io, and a browser check confirmed the new hero, Open to line and a 200 `image/jpeg` response for the card. Local verification was 48 passing browser tests plus the manifest check; social-platform preview caches were not refreshed.
+
+## Hero and about-photo compression
+
+Released `releases/release-compress-images-20261009` on October 9, 2026. The prior `releases/release-engineer-architect-20261009110159` remains intact for rollback; restore it through the same atomic symlink procedure if needed. Because that release still serves the old hero PNGs, rolling back also restores the older `main.js` and `main.css` that reference them.
+
+The nine rotating hero PNGs (about 52 MB combined) became 1920px WebP files (about 2.2 MB combined, largest 512 KB), referenced from `js/main.js` and the `css/main.css` fallback keyframes. Bulldog photos 10 and 11 shrank from about 2.4 and 2.8 MB to about 250 and 220 KB. The old hero PNGs were removed from the new release only; the prior release keeps them. Changed public files: `js/main.js`, `css/main.css`, nine `img/hero/*.webp`, and `img/bulldog/10.png` and `11.png`.
+
+Before switching, all 17 staged remote files matched the local repository byte for byte. After switching, the public verifier passed all 16 manifest artifacts on both raines.io and www.raines.io, and all nine WebP files returned 200 `image/webp` at the expected sizes while the old PNG returned 404. Local verification was 52 passing browser tests (one mobile carousel hover test failed once under full-suite load and passed on rerun and in isolation) plus the manifest check.
