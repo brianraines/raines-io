@@ -178,3 +178,11 @@ The stored Word source was updated in place at 9:49 a.m. CDT (`2026-10-09T14:49:
 Five Node tests and 42 local browser tests passed. Eight production desktop/mobile checks passed for navigation, project disclosures and downloads; all six manifest artifacts matched on both public hostnames. README source metadata and the publication manifest were refreshed after source/PDF review.
 
 Released `releases/release-split-bullet-20261009145106`, retaining `releases/release-ai-card-trim-20261009144125` for rollback. Only `index.html` and the PDF changed publicly. No shared service or Stableishwater release changed. Changes remain staged on `codex/resume-ai-content-review`, without a commit or push; the manual preview was restarted at `http://127.0.0.1:4173/`.
+
+## Engineer & Architect hero, Open to line and social card
+
+Released `releases/release-engineer-architect-20261009110159` on October 9, 2026. The prior `releases/release-split-bullet-20261009145106` remains intact for rollback; restore it through the same atomic symlink procedure if needed.
+
+The hero and About Role row now read Engineer & Architect, the About section gains an Open to line for Staff, Principal and Distinguished roles or engineering management, and `og:image`/`twitter:image` use the new 1200x630 `img/og-card.jpg` instead of the square logo. The page title, meta descriptions, structured data and vCard title are unchanged. Changed public files: `index.html` and `img/og-card.jpg`.
+
+Before switching, all six staged remote files matched the reviewed manifest. After switching, the public verifier passed all seven artifacts on both raines.io and www.raines.io, and a browser check confirmed the new hero, Open to line and a 200 `image/jpeg` response for the card. Local verification was 48 passing browser tests plus the manifest check; social-platform preview caches were not refreshed.
