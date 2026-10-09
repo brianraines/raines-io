@@ -249,7 +249,7 @@ li, p {
     font-size: 10pt;
     font-weight: 300;
     letter-spacing: 2pt;
-    color: #9e9e9e;
+    color: #ffffff;
     margin-top: 10px;
     text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
@@ -1068,16 +1068,28 @@ tr > td:nth-child(2) {
 }
 
 .swiper-wrapper .review-wrap {
+    display: block;
+    color: inherit;
+    text-decoration: none;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     transition: filter 600ms ease;
     -webkit-transition: -webkit-filter 600ms ease
 }
 
-.swiper-wrapper .review-wrap:hover {
+.swiper-wrapper .review-wrap:hover,
+.swiper-wrapper .review-wrap:focus-visible {
+    color: inherit;
+    text-decoration: none;
     cursor: pointer;
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
+}
+
+.swiper-wrapper .review-wrap:focus-visible {
+    outline: 2px solid #ff8c42;
+    outline-offset: 6px;
+    border-radius: 8px;
 }
 
 .swiper-wrapper .review-text {
@@ -1543,3 +1555,178 @@ footer h4 {
           margin-right: 30px;
         }
     }
+/* Project notes: aligned topic labels and a comfortable reading column. */
+.projects {
+    --project-label-width: 180px;
+    --project-column-gap: 32px;
+}
+
+.project-writeup {
+    margin-top: 32px;
+    scroll-margin-top: 100px;
+}
+
+.project-writeup + .project-writeup {
+    border-top: 1px solid #dcdcdc;
+    margin-top: 32px;
+    padding-top: 32px;
+}
+
+.project-header,
+.project-topic {
+    display: grid;
+    grid-template-columns: var(--project-label-width) minmax(0, 1fr);
+    column-gap: var(--project-column-gap);
+    align-items: start;
+}
+
+.project-writeup h3 {
+    font-size: 14pt;
+    font-weight: 700;
+    letter-spacing: 0.4pt;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.project-writeup p,
+.project-workflow li {
+    color: #3b3b3b;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    line-height: 1.65;
+}
+
+.project-writeup p {
+    max-width: 65ch;
+    margin: 0;
+    padding: 0;
+}
+
+.project-copy {
+    width: 100%;
+    max-width: 65ch;
+}
+
+.project-copy > p + p {
+    margin-top: 12px;
+}
+
+.project-writeup h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.6;
+    margin: 2px 0 0;
+}
+
+.project-writeup summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-left: calc(var(--project-label-width) + var(--project-column-gap));
+    padding: 8px 0;
+    color: #3b3b3b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.project-writeup summary::-webkit-details-marker {
+    display: none;
+}
+
+.project-writeup summary i {
+    color: #ff8c42;
+}
+
+.project-writeup details[open] summary i {
+    transform: rotate(90deg);
+}
+
+.project-writeup summary:hover {
+    color: #1b1b1b;
+}
+
+.project-writeup summary:focus-visible {
+    outline: 2px solid #1b1b1b;
+    outline-offset: 4px;
+}
+
+.project-body {
+    display: grid;
+    gap: 24px;
+    padding: 20px 0 8px;
+}
+
+.project-body code {
+    color: #3b3b3b;
+    font-size: 0.9em;
+    overflow-wrap: anywhere;
+}
+
+.project-workflow {
+    padding-left: 28px;
+    margin: 0 0 20px;
+}
+
+.project-workflow li {
+    padding: 8px 0 8px 8px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.project-workflow li:first-child {
+    padding-top: 0;
+}
+
+.project-workflow li::marker {
+    color: #3b3b3b;
+    font-size: 14px;
+}
+
+.project-workflow strong {
+    font-weight: 600;
+}
+
+.project-workflow span {
+    display: block;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 2px;
+}
+
+@media (max-width: 767px) {
+    .project-header,
+    .project-topic {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .project-writeup summary {
+        margin-left: 0;
+    }
+
+    .project-writeup h4 {
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .projects .padding {
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-wrapper {
+        width: calc(100% - 48px);
+    }
+
+    .header-wrapper h1 {
+        font-size: 24px;
+        letter-spacing: 2px;
+        line-height: 1.4;
+    }
+}

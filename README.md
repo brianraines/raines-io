@@ -1,33 +1,33 @@
 # BRIAN RAINES
 
+Resume source of truth: [Brian_Raines_Resume.docx on Google Drive](https://docs.google.com/document/d/1UJJjGHyt_VwZ6xB4fJHmDn1T5qSgoNIP/edit). The resume below matches the source revision last modified October 9, 2026 at 9:49 a.m. CDT, also used for the downloadable PDF.
+
 Plano, TX | (214) 707-0983 | brian@raines.io | https://raines.io
 
 ---
 
 ## PROFESSIONAL SUMMARY
 
-Software Engineer with 25+ years designing, building, and scaling complex web-based applications and distributed systems. I bring clarity to ambiguity, define technical direction through hands-on engineering, and build systems that endure.
-
-Equally comfortable designing architectures and writing code, I translate intricate problems into simplicity through thoughtful design and pragmatic execution. I thrive where deep technical work, mentorship, and shared ownership of outcomes define success.
+Software Engineer focused on AI-native software development and scalable distributed systems. I draw on 25+ years of hands-on engineering experience to bring clarity to complex problems and guide technical direction. My approach combines thoughtful architecture, pragmatic execution, and mentorship to help teams build reliable software and evolve how they work.
 
 ---
 
 ## TECHNICAL EXPERTISE
 
-**Architecture & System Design**
-Serverless & event-driven architecture • Distributed systems at scale • Microservices design patterns • API architecture (REST, WebSocket) • Single-table database modeling • Cost optimization strategies • Performance & scalability patterns • System reliability engineering • Technical trade-off analysis
+**AI-Native Engineering**
+Agentic SDLC orchestration • AI skill development • Model Context Protocol (MCP) server development • Persistent agent memory and scoped retrieval • Test-driven development and AI-assisted review • Codex, Claude, Cursor, GitHub Copilot, Devin, Jules, Amazon Q, Amazon Bedrock
 
-**Cloud Infrastructure & Platform Engineering**
-AWS (Lambda, API Gateway, DynamoDB, S3, Step Functions, SNS/SQS, WebSockets, CloudFormation, SAM) • Infrastructure as Code • Serverless computing patterns • Message queuing & event streaming • Real-time systems • CI/CD pipeline design • Synthetic monitoring • Cloud cost management
+**Architecture & AWS**
+Distributed, serverless, and event-driven systems • REST and WebSocket APIs • Lambda, API Gateway, Step Functions, SNS/SQS, S3 • Infrastructure as Code: CDK, SAM, CloudFormation • CloudWatch and synthetic monitoring
 
-**Data Architecture & Engineering**
-DynamoDB (Single-table design, access pattern modeling) • PostgreSQL • MySQL • MongoDB • Redis • Data modeling for scale • Query optimization • Database migration strategies • Multi-tenant database architecture patterns • ETL and Datawarehousing
+**Data Engineering**
+DynamoDB single-table design • PostgreSQL, MySQL, MongoDB, Redis, SQLite • Data modeling, migrations, and event-driven ETL
 
-**Technical Leadership & Enablement**
-Architecture review & technical standards • Cross-team collaboration & influence • Engineering mentorship & capability building • Technical strategy & roadmap planning • Build vs. buy evaluation • Technical documentation & knowledge sharing • Team scaling & best practices
+**Software Development**
+Java, Python, Node.js, PHP, JavaScript/TypeScript • Third-party API integration • Legacy system modernization
 
-**Development & Integration**
-Java • Python • Node.js • PHP • JavaScript/TypeScript • Modern framework evaluation • Third-party API orchestration • Legacy system modernization • PLC & hardware integration
+**Technical Leadership**
+Architecture and engineering standards • Technical strategy • Engineering mentorship • Cross-team collaboration and knowledge sharing
 
 ---
 
@@ -35,9 +35,34 @@ Java • Python • Node.js • PHP • JavaScript/TypeScript • Modern framewo
 
 ### Property Vista — Dallas, TX
 
-**Principal Software Engineer | 2026 — Present**
+**Principal Engineer | 2026 — Present**
 
-Property Vista is a property management software solution that transforms how property managers manage their properties and build tenant relationships.
+Property Vista develops VIDA, an AI-powered multifamily leasing platform connecting renter engagement, tour scheduling, and lease signing.
+
+**Organizational Impact:**
+
+- Advanced AI-native engineering adoption by mentoring engineers in integrating AI agents into everyday development.
+- Built an operator-invoked Codex skill that traces CloudWatch alarms through Lambda logs, Logs Insights, DynamoDB, and repository code, producing RCA reports with supporting queries and recommended fixes for defects, misconfigurations, and suspected attacks.
+- Built an operator-invoked Codex skill that locates Vivian users by email, phone, name, or web-chat ID and reconstructs system-event timelines and complete conversations from read-only DynamoDB and CloudWatch queries.
+
+**Robot Bakery**
+
+Developed Robot Bakery using Codex to orchestrate a standard software development lifecycle; continue to maintain and extend it. The Codex-orchestrated agentic SDLC platform is used by all engineers to process Jira tickets through discovery, design, planning, implementation, testing, review, and closure.
+
+- Paired task-tuned agents with read-only critics; the orchestrator enforces scripted workflow gates and iterates until both agents agree on completion.
+- Enforced test-driven implementation with unit, integration, and browser tests.
+- Enforced human approval of plans before implementation, with operators retaining ownership of pull-request approval, merging, and deployment.
+- Built Pantry MCP, a SQLite-backed persistent memory service with scoped, provenance-aware recall across sessions, tickets, and repositories so agents reuse decisions and lessons.
+- Created repository-based knowledge files documenting missteps and preferred patterns for reuse across developers.
+- Added feature-specific CloudWatch alarms through CDK stacks to monitor deployed application behavior, including API HTTP status codes.
+
+**Zero Touch Lease**
+
+Contribute to an actively developed proof of concept for end-to-end self-service leasing, connecting Vivian tours, Plaid identity verification, quotes, and lease signing across web chat, SMS, voice, and email.
+
+- Integrated DocuSeal e-signatures and Payroc application-fee collection; added workflow states for contact and household information.
+
+---
 
 ### Turnitin — Dallas, TX
 
@@ -45,26 +70,19 @@ Property Vista is a property management software solution that transforms how pr
 
 **Principal Software Engineer | 2021 — 2022**
 
-Built and evolved cloud-native, serverless platforms at global scale, defining architecture patterns, and development standards through working systems now used company-wide.
+Built cloud-native, serverless platforms at global scale and established architecture patterns and engineering standards adopted company-wide.
 
 **Organizational Impact:**
 
-- Author and implement SAM driven serverless patterns through working systems that have become the organizational standard.
-- Mentor engineers across multiple teams on distributed systems, DynamoDB modeling, and event-driven design.
-- Partner with engineering leadership on technical strategy and platform architecture decisions.
-Built and evolved cloud-native, serverless platforms at global scale, defining architecture patterns, and development standards through working systems now used company-wide.
-
-**Organizational Impact:**
-
-- Author and implement SAM driven serverless patterns through working systems that have become the organizational standard.
-- Mentor engineers across multiple teams on distributed systems, DynamoDB modeling, and event-driven design.
-- Partner with engineering leadership on technical strategy and platform architecture decisions.
+- Established AWS SAM serverless patterns as an organizational standard, creating a shared foundation for development.
+- Built cross-team expertise through mentorship in distributed systems, DynamoDB modeling, and event-driven design.
+- Shaped platform technical direction with engineering leadership through strategy and architecture decisions.
 
 **Award:** 2024 Values Champion Regional Winner: Americas “Action and Ownership, One Team”
 
-#### Paper to Digital Platform (2022 — 2026)
+**Paper to Digital Platform (2022 — 2025)**
 
-Developed an AI-powered extension to Turnitin Feedback Studio that expanded assessment capabilities beyond digital submissions to include paper-based evaluations featuring short answers, multiple choice, handwritten diagrams, and mathematical equations. The solution combined serverless architecture, real-time collaboration, and secure AI/OCR workflows to deliver scalable compliant performance.
+Developed an AI-powered extension to Turnitin Feedback Studio for paper-based assessments, including handwritten and mathematical responses, using serverless architecture, real-time collaboration, and AI/OCR workflows.
 
 - Architected serverless, event-driven backends in AWS achieving 99.9% reliability and horizontal scalability.
 - Implemented DynamoDB single-table design and Step Functions for complex AI/OCR workflow orchestration.
@@ -74,11 +92,9 @@ Developed an AI-powered extension to Turnitin Feedback Studio that expanded asse
 
 **Award:** Tech & Learning “Best Tools For Back to School 2024” for Turnitin’s Paper to Digital Add-On for Feedback Studio
 
-#### Usage Analytics Platform (2021 — 2022)
+**Usage Analytics Platform (2021 — 2022)**
 
-Designed and implemented an event-driven ETL pipeline leveraging SNS, DynamoDB Streams, and Kinesis Data Firehose to ingest and transform real-time customer engagement data into Amazon Redshift, visualized through QuickSight dashboards to drive consumption-based billing insights across the product portfolio.
-
-**Stack:** AWS (Lambda, API Gateway, WebSocket, DynamoDB, Step Functions, SNS/SQS, SAM), Serverless Architecture, Event-Driven Systems
+Designed an event-driven ETL pipeline using SNS, DynamoDB Streams, and Kinesis Data Firehose to feed customer engagement data into Redshift and QuickSight dashboards, supporting consumption-based billing insights across the product portfolio.
 
 ---
 
@@ -86,19 +102,9 @@ Designed and implemented an event-driven ETL pipeline leveraging SNS, DynamoDB S
 
 **Software Engineer IV | 2019 — 2021**
 
-#### High Volume Assessment Password Management (2021)
-
-Re-engineered a legacy WordPress solution into a serverless, auto-scaling architecture leveraging AWS services, delivering high concurrency and reliability for hundreds of thousands of simultaneous assessment credential requests.
-
-#### Migration of Liftupp from PHP Monolith to AWS Serverless (2019 - 2020)
-
-Led modernization of an acquired monolithic PHP platform into serverless Java microservices running on AWS.
-
-- Reverse-engineered and migrated API endpoints to Lambda-based services, improving scalability and maintainability.
-- Guided the team through database migration to AWS RDS and DocumentDB.
+- Re-engineered high-volume assessment password management from WordPress to an auto-scaling AWS serverless architecture supporting hundreds of thousands of simultaneous credential requests.
+- Led Liftupp’s migration from a PHP monolith to AWS serverless Java microservices, reverse-engineering APIs and guiding database migration to RDS and DocumentDB.
 - Mentored PHP engineers transitioning to AWS and Java development.
-
-**Stack:** Java, PHP, PostgreSQL, MongoDB, Redis, AWS (Lambda, API Gateway, RDS, Cognito, ElastiCache, DocumentDB)
 
 **Award:** 2020 Engineering Will-to-Win Employee of the Year
 
@@ -108,13 +114,8 @@ Led modernization of an acquired monolithic PHP platform into serverless Java mi
 
 **Lead Software Developer (Consultant) | 2018 — 2019**
 
-Architected and delivered a modern SaaS platform that unified multiple legacy business systems into a single, real-time interface for commercial scheduling and operations. The solution leveraged a robust RESTful backend, dynamic frontend, and modern engineering practices to enhance performance, maintainability, and team productivity.
-
-- Developed a Symfony RESTful API backend and Vue.js SPA frontend, enabling real-time data synchronization and consolidating third-party TV commercial purchasing and scheduling workflows into a unified UI.
-- Integrated and decommissioned multiple legacy systems, reducing operational complexity and long-term technical debt.
-- Mentored junior developers in system design, debugging, and framework best practices, strengthening overall engineering capability and code quality.
-
-**Stack:** PHP (Symfony), MSSQL, Vue.js, Bootstrap, Windows Server
+- Architected and delivered a Symfony REST API and Vue.js SPA that unified commercial purchasing and scheduling workflows with real-time data synchronization.
+- Integrated and decommissioned legacy systems, reducing operational complexity and long-term technical debt.
 
 ---
 
@@ -122,28 +123,23 @@ Architected and delivered a modern SaaS platform that unified multiple legacy bu
 
 **Application Architect | 2010 — 2018**
 
-Architected and developed a suite of enterprise-scale fulfillment and warehouse systems supporting multi-million sq. ft. distribution centers and thousands of concurrent users.
-
-- Designed and deployed order fulfillment and warehouse control systems with event-driven processing.
-- Built real-time OMS integrations with PLCs, sortation systems, and shipping carriers (FedEx, UPS, USPS).
-- Developed multi-language, SaaS-enabled platforms powering global eCommerce for Fortune 500 retailers.
-- Created mobile tools for warehouse staff using Motorola RhoElements for wearable devices.
-- Delivered scalable, resilient systems managing packing automation, store fulfillment, and warehouse logistics orchestration.
-
-**Stack:** PHP 5/7, Symfony, Redis, PostgreSQL, AS400, Microservices, REST APIs, Real-Time Messaging
+- Architected enterprise fulfillment and warehouse systems supporting multi-million-square-foot distribution centers and thousands of concurrent users.
+- Designed event-driven order fulfillment and warehouse control systems with real-time integrations to PLCs, sortation equipment, and FedEx, UPS, and USPS.
+- Developed SaaS platforms for global eCommerce operations serving Fortune 500 retailers.
 
 ---
 
 ### Early Career (2000 — 2008)
 
-Senior PHP Developer — StoneEagle, Credit Solutions
-Senior Developer / Engineering Lead — New Media Gateway, Crosswerk, Oven Digital
-Intranet Coordinator — Garden.com
-Freelance Web Developer — Siegel Gale, Credit Suisse First Boston, BLUEprint
+**Senior PHP Developer — StoneEagle, Credit Solutions**
 
-Progressively responsible roles building enterprise applications, leading development teams, and architecting marketing automation systems for Fortune 500 clients including Sprint, Harrah's, ING, Tiffany, and Consumer Reports.
+**Senior Developer / Engineering Lead — New Media Gateway, Crosswerk, Oven Digital**
 
-**Stacks:** PHP, Symfony, CakePHP, Zend Framework, MySQL, MSSQL, SOAP/XML, ExtJS, ASP, JSP, JavaScript/DHTML
+**Intranet Coordinator — Garden.com**
+
+**Freelance Web Developer - Siegel Gale, Credit Suisse First Boston, BLUEprint**
+
+Built enterprise applications and marketing automation systems and led development teams for Fortune 500 clients including Sprint, Harrah’s, ING, Tiffany, and Consumer Reports.
 
 ---
 
@@ -151,6 +147,21 @@ Progressively responsible roles building enterprise applications, leading develo
 
 **B.S., Business Administration — University of Texas at Dallas**
 
+## ADDITIONAL INFORMATION
+
+Portfolio and technical write-ups available at https://raines.io
+
+---
+
+## Website development
+
+Project setup: [development and testing](docs/development.md) and [agent instructions](AGENTS.md). Planning: [readiness review](docs/readiness-review.md) and [web application analysis](docs/web-app-analysis.md).
+
+Content review: [website and resume gap analysis — October 8, 2026](docs/resume-website-content-gap-analysis.md), including the original local/live comparison and the implementation follow-up.
+
+The website presents existing testing, monitoring, and root-cause analysis experience in a dedicated Quality & Reliability card; the resume retains its five expertise groups.
+
+The website includes project write-ups for Robot Bakery and Pantry MCP, Zero Touch Lease, Paper to Digital at Turnitin, and AI Support Skills. [Publication verification and Linode release procedure](docs/publication.md) records how to keep the page, PDF, and vCard aligned with the reviewed resume revision.
 
 ## License
 All rights reserved.

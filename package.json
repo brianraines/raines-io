@@ -1,0 +1,20 @@
+{
+  "name": "raines-io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brian Raines's resume companion website",
+  "scripts": {
+    "serve": "http-server . -a 127.0.0.1 -p 4173 -c-1 --silent",
+    "test": "node --test tests/publication.test.cjs && playwright test",
+    "verify:publication": "node scripts/verify-publication.js",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "http-server": "14.1.1"
+  }
+}

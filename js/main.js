@@ -25,6 +25,49 @@ $(document) .ready(function() {
      },
    });
 
+  // Pause while a recommendation is hovered or focused; resume after both end.
+   var hoveredCard = null;
+   var hasCardFocus = false;
+   var interactionPaused = false;
+   function updateAutoplay() {
+     if (hoveredCard || hasCardFocus) {
+       interactionPaused = true;
+       swiper.autoplay.stop();
+     } else if (interactionPaused) {
+       interactionPaused = false;
+       if (swiper.isEnd) {
+         swiper.slideTo(0);
+       } else {
+         swiper.slideNext();
+       }
+       swiper.autoplay.start();
+     }
+   }
+   swiper.el.querySelectorAll('.review-wrap').forEach(function(card) {
+     card.addEventListener('mouseenter', function() {
+       hoveredCard = card;
+       updateAutoplay();
+     });
+     card.addEventListener('mouseleave', function() {
+       if (hoveredCard === card) hoveredCard = null;
+       updateAutoplay();
+     });
+   });
+   swiper.el.addEventListener('focusin', function(event) {
+     var slide = event.target.closest('.swiper-slide');
+     if (slide) {
+       hasCardFocus = true;
+       updateAutoplay();
+       swiper.slideTo(Array.prototype.indexOf.call(swiper.slides, slide), 0);
+     }
+   });
+   swiper.el.addEventListener('focusout', function(event) {
+     if (!swiper.el.contains(event.relatedTarget)) {
+       hasCardFocus = false;
+       updateAutoplay();
+     }
+   });
+
   /*Magnific Popup*/
    $(function() {
     if ($('div.work').length) {
