@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "index.html",
-      "sha256": "caa10f25a1eb583f51c912c3e451e74010b65deda06bfb78f8cb9a185dc60211"
+      "sha256": "7fb17740f4569f66a0c5b70897ed1ab5f530474356b0aeb220ddd0a6f98ad910"
     },
     {
       "path": "css/main.css",
@@ -20,7 +20,7 @@
     },
     {
       "path": "vcard/Brian_Raines.vcf",
-      "sha256": "d2854514df7e0e6377d889f5f2ee3cda8aa0bcaa14ae17a420876514f57695f9"
+      "sha256": "de82543f689390963cb9c9c822ada4695d93233664a489583ec2b2aa61cee63b"
     },
     {
       "path": "img/testimonials/brandon_morrill.jpeg",

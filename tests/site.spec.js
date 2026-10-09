@@ -215,7 +215,7 @@ test('structured profile represents the current employer and AI expertise', asyn
   const profiles = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
     scripts.map((script) => JSON.parse(script.textContent)));
   const person = profiles.find((profile) => profile['@type'] === 'Person');
-  expect(person.jobTitle).toBe('Software Engineer');
+  expect(person.jobTitle).toBe('Engineer & Architect');
   expect(person.worksFor.name).toBe('Property Vista');
   for (const subjects of [person.knowsAbout, person.hasOccupation.skills]) {
     expect(subjects).toEqual(expect.arrayContaining([
@@ -438,6 +438,19 @@ test('social preview image is a served landscape card matching its declared size
   expect(String(natural.width)).toBe(await meta('meta[property="og:image:width"]'));
   expect(String(natural.height)).toBe(await meta('meta[property="og:image:height"]'));
   expect(natural.width / natural.height).toBeCloseTo(1.91, 1);
+});
+
+test('page title, social titles, profile data and contact card all say Engineer & Architect', async ({ page, request }) => {
+  await page.goto('/');
+  await expect(page).toHaveTitle(/Engineer & Architect/);
+  for (const selector of ['meta[name="title"]', 'meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+    await expect(page.locator(selector)).toHaveAttribute('content', /Brian Raines \| Engineer & Architect/);
+  }
+  const profiles = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
+    scripts.map((script) => JSON.parse(script.textContent)));
+  expect(profiles.find((profile) => profile['@type'] === 'Person').jobTitle).toBe('Engineer & Architect');
+  const vcard = await (await request.get('/vcard/Brian_Raines.vcf')).text();
+  expect(vcard).toMatch(/^TITLE:Engineer & Architect\r?$/m);
 });
 
 test('social previews and structured profile data are usable', async ({ page }) => {
