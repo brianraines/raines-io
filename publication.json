@@ -73,6 +73,54 @@
     {
       "path": "img/favicon/site.webmanifest",
       "sha256": "992070a3dfe1e76cd775b7cf01fb1fa2c3a62f2d499c7a98a74f0de6024f3d2d"
+    },
+    {
+      "path": "img/favicon/android-chrome-192x192.png",
+      "sha256": "9a850eb74503b278b39bffaf2f9ac817c38c95c5d74f1177af602771777695aa"
+    },
+    {
+      "path": "img/favicon/android-chrome-512x512.png",
+      "sha256": "6a1474467c371dd47bafb2b8862e47e72016c6f77f853533ea1bb66b5487197b"
+    },
+    {
+      "path": "img/favicon/apple-touch-icon.png",
+      "sha256": "77823638bbbd2f163946a24785350ee9a6a1c3a11bc2d27292d1db23c1ec7d5a"
+    },
+    {
+      "path": "img/favicon/favicon-128x128.png",
+      "sha256": "bd3ebcb1f55207f503442d9bcb39dc294ed6aa9c834a4247500cc86d7a554a22"
+    },
+    {
+      "path": "img/favicon/favicon-16x16.png",
+      "sha256": "3b480b8f97f27f83a371d25d7a00daf4a6509c264391ae6b8ecabee9f579c207"
+    },
+    {
+      "path": "img/favicon/favicon-256x256.png",
+      "sha256": "bd343c897e486a6453902b897f9293ade5fbc45ca63a0b2851acc11f9ae4e6c8"
+    },
+    {
+      "path": "img/favicon/favicon-32x32.png",
+      "sha256": "0e4adbb404300b463901dcad3eee0e0252357ca8a21c8c27dedfd7bbd1fa2720"
+    },
+    {
+      "path": "img/favicon/favicon-48x48.png",
+      "sha256": "a2ad7c539cdd6132b3af385f0c9191f71f4494cbba235272cc337bf8bbc37f52"
+    },
+    {
+      "path": "img/favicon/favicon-512x512.png",
+      "sha256": "6a1474467c371dd47bafb2b8862e47e72016c6f77f853533ea1bb66b5487197b"
+    },
+    {
+      "path": "img/favicon/favicon-64x64.png",
+      "sha256": "1fb2c519cb9c5d8724f2570953eae3df651a5afab7b89c7ae2ef383f7c409dd5"
+    },
+    {
+      "path": "img/favicon/favicon.ico",
+      "sha256": "f0004f4b4ca3f33b2e37ef4bea6d2d2ad0da7709261a3232f98dce253734c0a9"
+    },
+    {
+      "path": "img/logo.png",
+      "sha256": "6a1474467c371dd47bafb2b8862e47e72016c6f77f853533ea1bb66b5487197b"
     }
   ]
 }

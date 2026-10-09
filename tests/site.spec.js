@@ -493,6 +493,33 @@ test('web app manifest names Brian as an Engineer & Architect and its icons are 
   }
 });
 
+test('every declared icon is served at its declared size and the .ico offers 16, 32 and 48 px', async ({ page, request }) => {
+  await page.goto('/');
+  const icons = await page.locator('link[rel~="icon"], link[rel="apple-touch-icon"]').evaluateAll((links) =>
+    links.map((link) => ({ href: link.href, sizes: link.getAttribute('sizes') })));
+  const manifestHref = await page.locator('link[rel="manifest"]').getAttribute('href');
+  const manifest = await (await request.get(new URL(manifestHref, page.url()).href)).json();
+  for (const icon of manifest.icons) {
+    icons.push({ href: new URL(icon.src, page.url()).href, sizes: icon.sizes });
+  }
+  expect(icons.length).toBeGreaterThanOrEqual(5);
+  for (const { href, sizes } of icons) {
+    const response = await request.get(href);
+    expect(response.ok(), href).toBe(true);
+    const body = await response.body();
+    if (/\.ico$/.test(href)) {
+      const count = body.readUInt16LE(4);
+      const dimensions = Array.from({ length: count }, (_, index) => body[6 + index * 16] || 256).sort((a, b) => a - b);
+      expect(dimensions, href).toEqual(expect.arrayContaining([16, 32, 48]));
+    } else if (sizes) {
+      expect(response.headers()['content-type'], href).toBe('image/png');
+      expect(body.subarray(1, 4).toString(), href).toBe('PNG');
+      const [width, height] = sizes.split('x').map(Number);
+      expect([body.readUInt32BE(16), body.readUInt32BE(20)], href).toEqual([width, height]);
+    }
+  }
+});
+
 test('social previews and structured profile data are usable', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle(/Brian Raines/);
