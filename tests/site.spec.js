@@ -267,16 +267,8 @@ test('Brandon Morrill recommendation displays a usable portrait and consistent a
     has: page.getByRole('heading', { name: /Brandon Morrill/ }),
   });
   await expect(recommendation).toHaveAttribute('cite', /^https:\/\/www\.linkedin\.com\/in\/brian-raines-0669913\/details\/recommendations\//);
-  const profiles = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
-    scripts.map((script) => JSON.parse(script.textContent)));
-  const review = profiles.find((profile) => profile['@type'] === 'ItemList').itemListElement
-    .find((item) => item.author.name === 'Brandon Morrill');
-  expect(review).toBeDefined();
-  await expect(recommendation.getByRole('heading')).toHaveText(
-    `${review.author.name} — ${review.author.jobTitle}, ${review.author.worksFor.name}`);
-  expect((await recommendation.locator('p').innerText()).replace(/^"|"$/g, '')).toBe(review.reviewBody);
-  expect(review.url).toBe(await recommendation.getAttribute('cite'));
-  expect(review.reviewRating).toBeUndefined(); // LinkedIn recommendations do not supply a star rating.
+  await expect(recommendation.getByRole('heading')).toHaveText('Brandon Morrill — Principal Engineer, Property Vista');
+  await expect(recommendation.locator('p')).toContainText('one of the best engineers I\'ve worked with');
 });
 
 test('recommendation cards open the LinkedIn recommendations in a new tab', async ({ page, context }) => {
@@ -466,9 +458,9 @@ test('social preview image is a served landscape card matching its declared size
 
 test('page title, social titles, profile data and contact card all say Engineer & Architect', async ({ page, request }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle(/Engineer & Architect/);
+  await expect(page).toHaveTitle('Brian Raines | Engineer & Architect');
   for (const selector of ['meta[name="title"]', 'meta[property="og:title"]', 'meta[name="twitter:title"]']) {
-    await expect(page.locator(selector)).toHaveAttribute('content', /Brian Raines \| Engineer & Architect/);
+    await expect(page.locator(selector)).toHaveAttribute('content', 'Brian Raines | Engineer & Architect');
   }
   const profiles = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
     scripts.map((script) => JSON.parse(script.textContent)));
@@ -518,6 +510,21 @@ test('every declared icon is served at its declared size and the .ico offers 16,
       expect([body.readUInt32BE(16), body.readUInt32BE(20)], href).toEqual([width, height]);
     }
   }
+});
+
+test('structured data describes the person and site without self-published reviews, ratings or a search action', async ({ page }) => {
+  await page.goto('/');
+  const profiles = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
+    scripts.map((script) => JSON.parse(script.textContent)));
+  expect(profiles.map((profile) => profile['@type']).sort()).toEqual(['Person', 'WebSite']);
+  const serialized = JSON.stringify(profiles);
+  expect(serialized).not.toContain('reviewRating');
+  expect(serialized).not.toContain('SearchAction');
+  const person = profiles.find((profile) => profile['@type'] === 'Person');
+  const canonicalLinkedIn = 'https://www.linkedin.com/in/brian-raines-0669913/';
+  expect(person.sameAs).toContain(canonicalLinkedIn);
+  await expect(page.getByRole('link', { name: 'LinkedIn', exact: true })).toHaveAttribute('href', canonicalLinkedIn);
+  expect(person.alumniOf).not.toHaveProperty('degree');
 });
 
 test('social previews and structured profile data are usable', async ({ page }) => {
