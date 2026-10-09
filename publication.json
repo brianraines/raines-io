@@ -69,6 +69,10 @@
     {
       "path": "img/hero/hero-09.webp",
       "sha256": "42692d539bfa0b8b1d60d68f926ef1646211478ff231f9622fea42f67c3e363a"
+    },
+    {
+      "path": "img/favicon/site.webmanifest",
+      "sha256": "992070a3dfe1e76cd775b7cf01fb1fa2c3a62f2d499c7a98a74f0de6024f3d2d"
     }
   ]
 }
