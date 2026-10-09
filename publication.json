@@ -12,7 +12,7 @@
     },
     {
       "path": "css/main.css",
-      "sha256": "9ebcbf8e0d4f7847a55529e72d0b76d158c98dc88787d90dd937022e29f4e0a1"
+      "sha256": "18b12aac6dcd9b59a39a9a2c2c19c8801e6a78672694ae0e8ab46e05e0b18388"
     },
     {
       "path": "resume/Brian_Raines_Resume.pdf",
@@ -28,11 +28,47 @@
     },
     {
       "path": "js/main.js",
-      "sha256": "a4f48d5c00a27ce8a2495946170de7c33ed6c2193a1409441d914ea6162ed90a"
+      "sha256": "0b27dbf8f68fc64890f0885412aea00c0e167e621a26e7fd323c4d402b837c0d"
     },
     {
       "path": "img/og-card.jpg",
       "sha256": "eca1db9f3424059fbe06991fc564b1c11d53b15633246f1873ae4622965322c5"
+    },
+    {
+      "path": "img/hero/hero-01.webp",
+      "sha256": "face7daef81598ad7d640972dfb06ab9d1ab448418642dbc78326ef6dfd28f78"
+    },
+    {
+      "path": "img/hero/hero-02.webp",
+      "sha256": "d3caa51e2fdbdbad05f97ea9bb8a7be749b7c0535426304986a9117e38966162"
+    },
+    {
+      "path": "img/hero/hero-03.webp",
+      "sha256": "55b28c713ee34ba0df2fbc8b1ddf839cb452d8d62ec0c54b4bf83c54e88eb143"
+    },
+    {
+      "path": "img/hero/hero-04.webp",
+      "sha256": "30aef8762bbd0ee5eae9b15948be1381b8789df89e3b90dcee5c2d926e2a3b62"
+    },
+    {
+      "path": "img/hero/hero-05.webp",
+      "sha256": "4dfc3b2d62896c205091404c0b7c877fad674a7aa532e81e35dde23716587f12"
+    },
+    {
+      "path": "img/hero/hero-06.webp",
+      "sha256": "a7f6032e0964ad7d6e62b57b6964b2a66d88cf4ae2dee6928aaba40a194395a4"
+    },
+    {
+      "path": "img/hero/hero-07.webp",
+      "sha256": "886d6bbc400860b68da9924108743a8b240e31527345e6bff20b01b49a151c92"
+    },
+    {
+      "path": "img/hero/hero-08.webp",
+      "sha256": "2b489506f2efcbc6d6539006ca4574f1da595ccd9ced329daa6b4944c75ded56"
+    },
+    {
+      "path": "img/hero/hero-09.webp",
+      "sha256": "42692d539bfa0b8b1d60d68f926ef1646211478ff231f9622fea42f67c3e363a"
     }
   ]
 }

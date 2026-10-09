@@ -209,15 +209,15 @@ li, p {
 }
 
 @keyframes hero-rotate {
-     0%, 11%      { background-image: url('../img/hero/hero-01.png'); }
-     11.1%, 22%   { background-image: url('../img/hero/hero-02.png'); }
-     22.1%, 33%   { background-image: url('../img/hero/hero-03.png'); }
-     33.1%, 44%   { background-image: url('../img/hero/hero-04.png'); }
-     44.1%, 55%   { background-image: url('../img/hero/hero-05.png'); }
-     55.1%, 66%   { background-image: url('../img/hero/hero-06.png'); }
-     66.1%, 77%   { background-image: url('../img/hero/hero-07.png'); }
-     77.1%, 88%   { background-image: url('../img/hero/hero-08.png'); }
-     88.1%, 100%  { background-image: url('../img/hero/hero-09.png'); }
+     0%, 11%      { background-image: url('../img/hero/hero-01.webp'); }
+     11.1%, 22%   { background-image: url('../img/hero/hero-02.webp'); }
+     22.1%, 33%   { background-image: url('../img/hero/hero-03.webp'); }
+     33.1%, 44%   { background-image: url('../img/hero/hero-04.webp'); }
+     44.1%, 55%   { background-image: url('../img/hero/hero-05.webp'); }
+     55.1%, 66%   { background-image: url('../img/hero/hero-06.webp'); }
+     66.1%, 77%   { background-image: url('../img/hero/hero-07.webp'); }
+     77.1%, 88%   { background-image: url('../img/hero/hero-08.webp'); }
+     88.1%, 100%  { background-image: url('../img/hero/hero-09.webp'); }
 }
 */
 

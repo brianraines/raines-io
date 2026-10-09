@@ -110,7 +110,7 @@ $(document) .ready(function() {
     var number = Math.floor(Math.random() * 9) + 1;
     // set the background image to the new image with an ease in and out effect
     document.querySelector('.hero-rotating').style.transition = 'background-image 0.5s ease-in-out';
-    document.querySelector('.hero-rotating').style.backgroundImage = 'url(img/hero/hero-0' + number + '.png)';
+    document.querySelector('.hero-rotating').style.backgroundImage = 'url(img/hero/hero-0' + number + '.webp)';
   }
 
   rotateHero();
