@@ -79,6 +79,39 @@ test('hero and contact table describe Brian as an Engineer & Architect', async (
   await expect(role).toContainText('Engineer & Architect');
 });
 
+test('every rotating hero image is a web-sized image', async ({ page }) => {
+  const heroResponses = new Map();
+  page.on('response', async (response) => {
+    if (/\/img\/hero\//.test(response.url())) {
+      heroResponses.set(response.url(), { status: response.status(), type: response.headers()['content-type'], bytes: (await response.body()).length });
+    }
+  });
+  // Cycle through all nine images instead of relying on chance.
+  await page.addInitScript(() => {
+    let calls = 0;
+    Math.random = () => ((calls++ % 9) + 0.5) / 9;
+  });
+  await page.clock.install();
+  await page.goto('/');
+  for (let tick = 0; tick < 12; tick++) {
+    await page.clock.runFor(5000);
+  }
+  await expect.poll(() => heroResponses.size, { timeout: 15000 }).toBe(9);
+  for (const [url, { status, type, bytes }] of heroResponses) {
+    expect(status, url).toBe(200);
+    expect(type, url).toMatch(/^image\//);
+    expect(bytes, `${url} should stay under 600 KB`).toBeLessThan(600 * 1024);
+  }
+});
+
+test('every about-photo option is a small, served image', async ({ request }) => {
+  for (let number = 1; number <= 11; number++) {
+    const response = await request.get(`/img/bulldog/${number}.png`);
+    expect(response.ok(), `bulldog ${number}`).toBe(true);
+    expect((await response.body()).length, `bulldog ${number} should stay under 300 KB`).toBeLessThan(300 * 1024);
+  }
+});
+
 test('about section tells visitors which roles Brian is open to', async ({ page }) => {
   await page.goto('/#about');
   await expect(page.locator('.preloader-wrap')).toBeHidden();
