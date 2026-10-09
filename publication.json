@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "source": {
+    "fileId": "1UJJjGHyt_VwZ6xB4fJHmDn1T5qSgoNIP",
+    "modifiedTime": "2026-10-09T14:49:17.898Z"
+  },
+  "reviewedAt": "2026-10-09",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "caa10f25a1eb583f51c912c3e451e74010b65deda06bfb78f8cb9a185dc60211"
+    },
+    {
+      "path": "css/main.css",
+      "sha256": "9ebcbf8e0d4f7847a55529e72d0b76d158c98dc88787d90dd937022e29f4e0a1"
+    },
+    {
+      "path": "resume/Brian_Raines_Resume.pdf",
+      "sha256": "8ce877c96da1d540c23b0948b6b24de4500e0176c34d5a0d43314f1c77c8e579"
+    },
+    {
+      "path": "vcard/Brian_Raines.vcf",
+      "sha256": "d2854514df7e0e6377d889f5f2ee3cda8aa0bcaa14ae17a420876514f57695f9"
+    },
+    {
+      "path": "img/testimonials/brandon_morrill.jpeg",
+      "sha256": "f415ec3492aeec47e3509d92e4b9edbecefa9fd2273e31b4699266be84925f57"
+    },
+    {
+      "path": "js/main.js",
+      "sha256": "a4f48d5c00a27ce8a2495946170de7c33ed6c2193a1409441d914ea6162ed90a"
+    },
+    {
+      "path": "img/og-card.jpg",
+      "sha256": "eca1db9f3424059fbe06991fc564b1c11d53b15633246f1873ae4622965322c5"
+    }
+  ]
+}
