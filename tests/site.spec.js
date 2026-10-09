@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, chromium } = require('@playwright/test');
 const { readFile } = require('node:fs/promises');
 
 test.beforeEach(async ({ page, baseURL }) => {
@@ -146,6 +146,31 @@ test('about section tells visitors which roles Brian is open to', async ({ page 
     await expect(openTo).toContainText(role);
   }
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('Contact is highlighted in the menu at the very bottom on a display with a fractional pixel ratio', async ({ baseURL, isMobile }) => {
+  test.skip(isMobile, 'The menu is collapsed on phones; the desktop layout is what shows the highlight.');
+  // Zoomed browsers and scaled displays leave the maximum scroll position fractionally short of the
+  // rounded document height. Whole-number device scale factors never expose this, so use a browser
+  // launched with a real fractional ratio.
+  const browser = await chromium.launch({ args: ['--force-device-scale-factor=1.18'] });
+  try {
+    const context = await browser.newContext({ baseURL, viewport: { width: 1700, height: 880 }, deviceScaleFactor: 1.18 });
+    await context.route('**/*', (route) => {
+      if (new URL(route.request().url()).origin === new URL(baseURL).origin) return route.continue();
+      return route.fulfill({ status: 200, body: '' });
+    });
+    const page = await context.newPage();
+    await page.goto('/');
+    await expect(page.locator('.preloader-wrap')).toBeHidden();
+    await expect.poll(async () => {
+      // Lazy images below the fold can still extend the page, so keep scrolling to the true end.
+      await page.evaluate(() => window.scrollTo({ top: 1e7, behavior: 'instant' }));
+      return page.locator('#navbar-nav li.active a').allInnerTexts();
+    }).toEqual(['Contact']);
+  } finally {
+    await browser.close();
+  }
 });
 
 test('quality and leadership cards share a row on desktop and stack on mobile', async ({ page, isMobile }) => {

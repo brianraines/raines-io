@@ -818,8 +818,15 @@
       <script src="js/main.js"></script>
       <!-- Gumshoe script -->
       <script>
+         // On displays with a fractional pixel ratio the last scroll position can fall a fraction of a
+         // pixel short of the document height, so Gumshoe never sees "at the bottom". Treat the last
+         // couple of pixels as the bottom, which makes the final section (Contact) the active one.
          var spy = new Gumshoe('#navbar-nav a', {
-            nested: true
+            nested: true,
+            offset: function () {
+               var nearBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2;
+               return nearBottom ? window.innerHeight : 0;
+            }
          });
       </script>
    </body>
