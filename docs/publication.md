@@ -202,3 +202,13 @@ Released `releases/release-title-metadata-20261009` on October 9, 2026. The prio
 The page `<title>`, `meta name="title"`, `og:title`, `twitter:title`, the Person `jobTitle` in the JSON-LD and the vCard `TITLE` now read Engineer & Architect, matching the hero. The meta, Open Graph and JSON-LD descriptions keep the resume summary wording, `hasOccupation.name` stays Software Engineer as the occupation category, and employment titles are unchanged. Changed public files: `index.html` and `vcard/Brian_Raines.vcf`.
 
 Before switching, all 15 staged remote files matched the local repository byte for byte. After switching, the public verifier passed all 16 manifest artifacts on both raines.io and www.raines.io, and the served title, social titles, JSON-LD jobTitle and vCard title were read back from the live site. Local verification was 54 passing browser tests plus the manifest check. Social-platform preview caches were not refreshed.
+
+## Carousel pause fix
+
+Released `releases/release-carousel-fix-20261009` on October 9, 2026. The prior `releases/release-title-metadata-20261009` remains intact for rollback; restore it through the same atomic symlink procedure if needed. Rolling back restores the earlier carousel behavior.
+
+Moving the pointer from one testimonial card to another previously fired `mouseleave` before `mouseenter`, which resumed autoplay and advanced a slide. `js/main.js` now treats movement within the carousel as still hovering and resumes only when the pointer leaves the carousel or a card is left toward the outside. Changed public file: `js/main.js`.
+
+The carousel regression tests were also made deterministic: they wait for real-time CSS transitions to settle and measure a card's overlap with the carousel instead of depending on an IntersectionObserver frame arriving in time. Under heavy artificial CPU load (10 busy processes, 6 workers), the previous tests failed intermittently while 280 carousel runs passed after the change, and the old `main.js` fails the between-cards test on every run.
+
+Before switching, all 15 staged remote files matched the local repository byte for byte. After switching, the public verifier passed all 16 manifest artifacts on both raines.io and www.raines.io, and a browser check against raines.io confirmed that moving the pointer between two cards leaves the carousel on its first slide with autoplay paused. Local verification was 54 passing browser tests, run twice, plus the manifest check.
