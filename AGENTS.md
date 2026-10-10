@@ -19,6 +19,7 @@ This is Brian Raines's static resume companion website, not a framework applicat
 - `.github/workflows/ci.yml`: browser CI, separate from deployment.
 - `docs/development.md`: commands, test coverage, and hosting details.
 - `docs/readiness-review.md` and `docs/web-app-analysis.md`: planning context and audit findings; recheck findings before treating them as current.
+- `docs/job_hunt/`: private local data for Brian's `job-hunt` agent skill (published separately at `brianraines/job-hunt`). It is Git-ignored by design: never commit, deploy, or copy it into tracked files, and never weaken the ignore rule or `tests/repository.test.cjs`.
 
 ## Setup and commands
 
@@ -32,7 +33,7 @@ npm test
 
 On Linux, use `npx playwright install --with-deps chromium`.
 
-- `npm test`: Node publication-verifier tests, then desktop Chromium and mobile Chromium emulation.
+- `npm test`: Node publication-verifier and private-data ignore tests, then desktop Chromium and mobile Chromium emulation.
 - `npm run verify:publication`: compare local artifacts with the reviewed manifest.
 - `npm run verify:publication -- --url https://raines.io/`: read-only public artifact check; does not deploy.
 - `npm test -- --project=desktop-chromium --grep 'navigation'`: example focused run.
