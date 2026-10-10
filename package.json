@@ -5,7 +5,7 @@
   "description": "Brian Raines's resume companion website",
   "scripts": {
     "serve": "http-server . -a 127.0.0.1 -p 4173 -c-1 --silent",
-    "test": "node --test tests/publication.test.cjs && playwright test",
+    "test": "node --test tests/publication.test.cjs tests/repository.test.cjs && playwright test",
     "verify:publication": "node scripts/verify-publication.js",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report"

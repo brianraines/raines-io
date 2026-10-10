@@ -3,3 +3,6 @@ playwright-report/
 test-results/
 blob-report/
 .DS_Store
+
+# Private job-search data used by the job-hunt agent skill; never commit or deploy.
+docs/job_hunt/
