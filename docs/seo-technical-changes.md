@@ -1,6 +1,6 @@
 # Technical SEO patch
 
-Prepared on October 12, 2026 on `codex/seo-technical-fixes`, following [the SEO audit](seo-audit.md). This is staged repository work, not a production release.
+Prepared on October 12, 2026 on `codex/seo-technical-fixes`, following [the SEO audit](seo-audit.md). Deployed to raines.io on October 12, 2026 as `release-seo-20261012T154314Z` from signed commit `f085f78`; see [the release record](publication.md#october-12-2026-technical-seo-release).
 
 ## Scope
 
@@ -16,20 +16,20 @@ Implemented:
 - Linked Person, WebSite, and ProfilePage records through stable IDs, retaining the existing facts and omitting the mascot portrait claim.
 - Loaded upstream minified jQuery 3.7.1 and stopped loading unused popup/filter libraries and the dormant form handler. The original vendor files remain available; license notices are preserved. Loaded local JavaScript falls from 595,791 to 317,277 uncompressed bytes, approximately 47% less.
 - Added `display=swap` to the existing Roboto request.
-- Prepared Apache URL consolidation and bounded cache policies, with real HTTP/HTTPS regression checks. HTML/discovery documents revalidate; mutable styles/scripts/images/fonts cache for one hour and then revalidate. Immutable caching is deliberately absent because these filenames can change in place.
+- Configured Apache URL consolidation and bounded cache policies, with real HTTP/HTTPS regression checks. HTML/discovery documents revalidate; mutable styles/scripts/images/fonts cache for one hour and then revalidate. Immutable caching is deliberately absent because these filenames can change in place.
 
-The Drive Word source was re-read and its modification time remains `2026-10-09T14:49:17.898Z`, matching the prior manifest. The PDF/vCard bytes are unchanged. `publication.json` records the reviewed technical artifacts and the same source revision; it is not a claim that this branch has been published.
+The Drive Word source was re-read and its modification time remains `2026-10-09T14:49:17.898Z`, matching the prior manifest. The PDF/vCard bytes are unchanged. `publication.json` records the reviewed technical artifacts and the same source revision; all 41 public artifacts matched it after this release.
 
-## Hosting changes awaiting an authorized release
+## Hosting configuration and rollback
 
-Read-only inspection confirmed that `/etc/apache2/sites-enabled/rainesio.conf` has a raines.io HTTP virtual host using `Redirect permanent / https://www.raines.io/`, and an HTTPS virtual host with document root `/opt/app/brian/current` and `AllowOverride All`.
+Pre-release inspection found that `/etc/apache2/sites-enabled/rainesio.conf` had a raines.io HTTP virtual host using `Redirect permanent / https://www.raines.io/`, and an HTTPS virtual host with document root `/opt/app/brian/current` and `AllowOverride All`.
 
 Two coordinated changes are required for one-hop canonical redirects:
 
 1. Include the branch's `.htaccess` in the staged static release. It canonicalizes HTTPS www and explicit `/index.html` requests, preserving query strings and encoded paths. Internal DirectoryIndex resolution does not redirect. It also sets document/asset cache headers.
 2. Install [the HTTP rule include](../deploy/apache/raines-io-http.conf) outside the symlinked releases, for example at `/etc/apache2/raines-io-http.conf`. In **only** the port-80 VirtualHost whose ServerName is raines.io, replace the old `Redirect` directive with `Include /etc/apache2/raines-io-http.conf`. Preserve the other virtual hosts, TLS configuration, logging, and shared services.
 
-The `.htaccess` rule alone cannot change the existing HTTP virtual-host redirect. The include must replace that directive rather than be added alongside it. This repository does not install either change remotely.
+The `.htaccess` rule alone cannot change the existing HTTP virtual-host redirect. The include must replace that directive rather than be added alongside it. Activation is manual; no deployment automation has been added.
 
 Before activation, save the current virtual-host configuration, previous include if any, and active release target. Verify `mod_rewrite` and `mod_headers` are enabled. Compare the staged include and `.htaccess` with reviewed local bytes. Run Apache's configuration check and follow the site's existing operator process for applying virtual-host changes; a service configuration change is separate from the static symlink switch. Validate the staged release and keep the previous release available as described in [publication.md](publication.md).
 
@@ -48,7 +48,7 @@ After activation, verify these GET outcomes without automatically following redi
 
 Run `npm run verify:publication -- --url https://raines.io/` and production desktop/mobile smoke checks after release. `.htaccess` is an Apache access file and is intentionally not a publicly downloadable manifest artifact; verify its effects through redirects/headers and its staged bytes separately. The HTTP include is also outside the public-artifact manifest. Cached 301s and assets may outlive a rollback in a visitor's browser.
 
-For rollback, restore the previous virtual-host/include configuration and validate it before applying it through the operator process. Restore the previous static release symlink as well. Switching only the symlink does not roll back HTTP virtual-host rules. No remote changes were made during preparation.
+For rollback, restore the previous virtual-host/include configuration and validate it before applying it through the operator process. Restore the previous static release symlink as well. Switching only the symlink does not roll back HTTP virtual-host rules. The configuration and release were subsequently activated with Brian’s authorization; the release record identifies the saved rollback state.
 
 ## Verification
 
