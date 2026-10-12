@@ -55,8 +55,8 @@ test('site initializes without JavaScript errors or failed local requests', asyn
   await expect(page.locator('.preloader-wrap')).toBeHidden();
   await expect(page.getByRole('region', { name: 'Testimonials carousel' })).toHaveClass(/swiper-initialized/);
   await page.getByRole('region', { name: 'About me' }).scrollIntoViewIfNeeded();
-  await expect(page.getByRole('region', { name: 'About me' }).getByRole('img')).toBeVisible();
-  await expect.poll(() => page.getByRole('region', { name: 'About me' }).getByRole('img')
+  await expect(page.getByRole('region', { name: 'About me' }).locator('img')).toBeVisible();
+  await expect.poll(() => page.getByRole('region', { name: 'About me' }).locator('img')
     .evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true);
   expect(errors).toEqual([]);
 });
@@ -185,8 +185,13 @@ test('quality and leadership cards share a row on desktop and stack on mobile', 
   const leadership = skills.locator('.card-skill').filter({
     has: page.getByRole('heading', { name: 'Technical Leadership', exact: true }),
   });
-  const qualityBox = await quality.boundingBox();
-  const leadershipBox = await leadership.boundingBox();
+  // Read both rectangles in one frame so scrolling cannot skew their relative positions.
+  const cards = leadership.or(quality);
+  await expect(cards).toHaveCount(2);
+  const [leadershipBox, qualityBox] = await cards.evaluateAll((elements) => elements.map((card) => {
+    const { x, y, width, height } = card.getBoundingClientRect();
+    return { x, y, width, height };
+  }));
   if (isMobile) {
     expect(qualityBox.y).toBeGreaterThanOrEqual(leadershipBox.y + leadershipBox.height);
     expect(Math.abs(qualityBox.x - leadershipBox.x)).toBeLessThan(1);
@@ -541,7 +546,7 @@ test('structured data describes the person and site without self-published revie
   await page.goto('/');
   const profiles = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
     scripts.map((script) => JSON.parse(script.textContent)));
-  expect(profiles.map((profile) => profile['@type']).sort()).toEqual(['Person', 'WebSite']);
+  expect(profiles.map((profile) => profile['@type']).sort()).toEqual(['Person', 'ProfilePage', 'WebSite']);
   const serialized = JSON.stringify(profiles);
   expect(serialized).not.toContain('reviewRating');
   expect(serialized).not.toContain('SearchAction');

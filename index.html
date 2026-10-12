@@ -26,11 +26,11 @@
       <meta name="theme-color" content="#ff8c42">
 
       <!-- Canonical URL -->
-      <link rel="canonical" href="https://raines.io">
+      <link rel="canonical" href="https://raines.io/">
 
       <!-- Open Graph / Facebook -->
       <meta property="og:type" content="website">
-      <meta property="og:url" content="https://raines.io">
+      <meta property="og:url" content="https://raines.io/">
       <meta property="og:title" content="Brian Raines | Engineer &amp; Architect">
       <meta property="og:description" content="Software Engineer focused on AI-native software development and scalable distributed systems, with 25+ years of hands-on engineering experience.">
       <meta property="og:image" content="https://raines.io/img/og-card.jpg">
@@ -44,7 +44,7 @@
       <!-- Twitter -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:domain" content="raines.io">
-      <meta name="twitter:url" content="https://raines.io">
+      <meta name="twitter:url" content="https://raines.io/">
       <meta name="twitter:title" content="Brian Raines | Engineer &amp; Architect">
       <meta name="twitter:description" content="Software Engineer focused on AI-native software development and scalable distributed systems, with 25+ years of hands-on engineering experience.">
       <meta name="twitter:image" content="https://raines.io/img/og-card.jpg">
@@ -77,10 +77,10 @@
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://raines.io/#person",
         "name": "Brian Raines",
         "jobTitle": "Engineer & Architect",
-        "url": "https://raines.io",
-        "image": "https://raines.io/img/bulldog/8.png",
+        "url": "https://raines.io/",
         "email": "brian@raines.io",
         "telephone": "+12147070983",
         "address": {
@@ -157,28 +157,39 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://raines.io/#website",
         "name": "Brian Raines",
-        "url": "https://raines.io",
+        "url": "https://raines.io/",
         "description": "Professional portfolio and resume of Brian Raines. Software Engineer focused on AI-native software development and scalable distributed systems, with 25+ years of hands-on engineering experience.",
         "author": {
+          "@id": "https://raines.io/#person",
           "@type": "Person",
           "name": "Brian Raines"
         }
       }
       </script>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "@id": "https://raines.io/#profile",
+        "url": "https://raines.io/",
+        "mainEntity": { "@id": "https://raines.io/#person" }
+      }
+      </script>
+      <link rel="preload" as="image" href="img/hero/hero-01.webp" type="image/webp" media="(min-width: 768px)">
+      <link rel="preload" as="image" href="img/hero/hero-01-960.webp" imagesrcset="img/hero/hero-01-960.webp 1x, img/hero/hero-01.webp 2x" type="image/webp" media="(max-width: 767.98px)">
       <!-- Bootstrap -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <!-- Main CSS -->
       <link href="css/main.css" rel="stylesheet">
       <!-- Font-Awesome 4 CSS -->
       <link rel="stylesheet" href="css/font-awesome.min.css">
-      <!-- Magnific Popup CSS -->
-      <link rel="stylesheet" href="css/magnific-popup.css">
       <!-- Swiper CSS -->
       <link rel="stylesheet" href="css/swiper-bundle.min.css">
       <!-- Google Fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;display=swap" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -205,17 +216,6 @@
             height: auto;
          }
       </style>
-
-      <!-- Preloader -->
-      <div class="preloader-wrap" aria-hidden="true">
-         <div class="preloader">
-            <div class="lines">
-               <div class="line line-1"></div>
-               <div class="line line-2"></div>
-               <div class="line line-3"></div>
-            </div>
-         </div>
-      </div>
 
       <!-- Navigation Sidebar -->
       <nav class="navbar fixed-top navbar-expand-lg" role="navigation" aria-label="Main navigation">
@@ -252,7 +252,7 @@
          <div class="bottom">
             <div class="bottom-info">
                <p>Email <a href="mailto:brian@raines.io">brian@raines.io</a></p>
-               <p>Plano, TX · <a href="https://raines.io">raines.io</a></p>
+               <p>Plano, TX · <a href="https://raines.io/">raines.io</a></p>
             </div>
          </div>
       </nav>
@@ -295,7 +295,7 @@
                         <p class="about-text">At Property Vista, I’m helping bring AI agents into everyday engineering work through development workflows, persistent agent memory, and support investigation tools. Previously, at Turnitin, I helped develop Paper to Digital through serverless architecture, AI/OCR workflows, and real-time collaboration.</p>
                         <p class="about-text">Across these roles, my approach stays consistent: understand what matters, make deliberate architectural choices, and give teams the tools and shared knowledge to build reliable software.</p>
                         <p class="about-text open-to"><strong>Open to:</strong> Staff, Principal, and Distinguished engineering roles, or engineering management.</p>
-                        <h5>Follow me:</h5>
+                        <p class="social-heading">Follow me:</p>
                         <div class="social-icons">
                            <ul>
                               <li class="linkedin"><a href="https://www.linkedin.com/in/brian-raines-0669913/" aria-label="LinkedIn" rel="me noopener noreferrer" target="_blank"><i class="fa fa-linkedin"></i></a></li>
@@ -306,7 +306,7 @@
                   </div>
                   <div class="col-lg-3 col-md-4 col-xs-12">
                      <div class="about-photo">
-                        <img src="img/bulldog/8.png" alt="Brian Raines - Software Engineer" loading="lazy">
+                        <img src="img/bulldog/8.png" alt="" width="250" height="250" loading="lazy">
                      </div>
                   </div>
                   <div class="col-lg-4 col-xs-12">
@@ -351,7 +351,7 @@
                   <div class="skill-cards">
                      <div class="card-skill">
                         <i class="fa fa-code" aria-hidden="true"></i>
-                        <h4>AI-Native Engineering</h4>
+                        <h3>AI-Native Engineering</h3>
                         <ul>
                            <li>Agentic SDLC orchestration</li>
                            <li>AI skill development</li>
@@ -361,7 +361,7 @@
                      </div>
                      <div class="card-skill">
                         <i class="fa fa-cloud" aria-hidden="true"></i>
-                        <h4>Architecture &amp; AWS</h4>
+                        <h3>Architecture &amp; AWS</h3>
                         <ul>
                            <li>Distributed, serverless, and event-driven systems</li>
                            <li>REST and WebSocket APIs</li>
@@ -371,7 +371,7 @@
                      </div>
                      <div class="card-skill">
                         <i class="fa fa-database" aria-hidden="true"></i>
-                        <h4>Data Engineering</h4>
+                        <h3>Data Engineering</h3>
                         <ul>
                            <li>DynamoDB single-table design</li>
                            <li>PostgreSQL, MySQL, MongoDB, Redis, SQLite</li>
@@ -380,7 +380,7 @@
                      </div>
                      <div class="card-skill">
                         <i class="fa fa-code" aria-hidden="true"></i>
-                        <h4>Software Development</h4>
+                        <h3>Software Development</h3>
                         <ul>
                            <li>Java, Python, Node.js, PHP, JavaScript/TypeScript</li>
                            <li>Third-party API integration</li>
@@ -389,7 +389,7 @@
                      </div>
                      <div class="card-skill">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <h4>Technical Leadership</h4>
+                        <h3>Technical Leadership</h3>
                         <ul>
                            <li>Architecture and engineering standards</li>
                            <li>Technical strategy</li>
@@ -399,7 +399,7 @@
                      </div>
                      <div class="card-skill">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
-                        <h4>Quality &amp; Reliability</h4>
+                        <h3>Quality &amp; Reliability</h3>
                         <ul>
                            <li>Test-driven development</li>
                            <li>Unit, integration, browser, and end-to-end testing</li>
@@ -423,15 +423,15 @@
                      <div class="experience-list">
                         <div class="experience-item">
                            <p class="year"><time datetime="2026">2026</time> — <time datetime="2026">Present</time></p>
-                           <h5>Principal Engineer, Property Vista — Dallas, TX</h5>
+                           <h3>Principal Engineer, Property Vista — Dallas, TX</h3>
                            <p>Property Vista develops VIDA, an AI-powered multifamily leasing platform connecting renter engagement, tour scheduling, and lease signing.</p>
-                           <h6>Organizational Impact</h6>
+                           <h4>Organizational Impact</h4>
                            <ul>
                               <li>Advanced AI-native engineering adoption by mentoring engineers in integrating AI agents into everyday development.</li>
                               <li>Built an operator-invoked Codex skill that traces CloudWatch alarms through Lambda logs, Logs Insights, DynamoDB, and repository code, producing RCA reports with supporting queries and recommended fixes for defects, misconfigurations, and suspected attacks.</li>
                               <li>Built an operator-invoked Codex skill that locates Vivian users by email, phone, name, or web-chat ID and reconstructs system-event timelines and complete conversations from read-only DynamoDB and CloudWatch queries.</li>
                            </ul>
-                           <h6>Robot Bakery</h6>
+                           <h4>Robot Bakery</h4>
                            <p>Developed Robot Bakery using Codex to orchestrate a standard software development lifecycle; continue to maintain and extend it. The Codex-orchestrated agentic SDLC platform is used by all engineers to process Jira tickets through discovery, design, planning, implementation, testing, review, and closure.</p>
                            <ul>
                               <li>Paired task-tuned agents with read-only critics; the orchestrator enforces scripted workflow gates and iterates until both agents agree on completion.</li>
@@ -441,7 +441,7 @@
                               <li>Created repository-based knowledge files documenting missteps and preferred patterns for reuse across developers.</li>
                               <li>Added feature-specific CloudWatch alarms through CDK stacks to monitor deployed application behavior, including API HTTP status codes.</li>
                            </ul>
-                           <h6>Zero Touch Lease</h6>
+                           <h4>Zero Touch Lease</h4>
                            <p>Contribute to an actively developed proof of concept for end-to-end self-service leasing, connecting Vivian tours, Plaid identity verification, quotes, and lease signing across web chat, SMS, voice, and email.</p>
                            <ul>
                               <li>Integrated DocuSeal e-signatures and Payroc application-fee collection; added workflow states for contact and household information.</li>
@@ -449,17 +449,17 @@
                         </div>
                         <div class="experience-item">
                            <p class="year"><time datetime="2022">2022</time> — <time datetime="2026">2026</time></p>
-                           <h5>Distinguished Software Engineer, Turnitin — Dallas, TX</h5>
+                           <h3>Distinguished Software Engineer, Turnitin — Dallas, TX</h3>
                            <p>Principal Software Engineer | 2021 — 2022</p>
                            <p>Built cloud-native, serverless platforms at global scale and established architecture patterns and engineering standards adopted company-wide.</p>
-                           <h6>Organizational Impact</h6>
+                           <h4>Organizational Impact</h4>
                            <ul>
                               <li>Established AWS SAM serverless patterns as an organizational standard, creating a shared foundation for development.</li>
                               <li>Built cross-team expertise through mentorship in distributed systems, DynamoDB modeling, and event-driven design.</li>
                               <li>Shaped platform technical direction with engineering leadership through strategy and architecture decisions.</li>
                            </ul>
                            <p>Award: 2024 Values Champion Regional Winner: Americas “Action and Ownership, One Team”</p>
-                           <h6>Paper to Digital Platform (2022 — 2025)</h6>
+                           <h4>Paper to Digital Platform (2022 — 2025)</h4>
                            <p>Developed an AI-powered extension to Turnitin Feedback Studio for paper-based assessments, including handwritten and mathematical responses, using serverless architecture, real-time collaboration, and AI/OCR workflows.</p>
                            <ul>
                               <li>Architected serverless, event-driven backends in AWS achieving 99.9% reliability and horizontal scalability.</li>
@@ -469,12 +469,12 @@
                               <li>Ensured TX-RAMP compliance and certification, maintaining rigorous state-level security standards.</li>
                            </ul>
                            <p>Award: Tech &amp; Learning “Best Tools For Back to School 2024” for Turnitin’s Paper to Digital Add-On for Feedback Studio</p>
-                           <h6>Usage Analytics Platform (2021 — 2022)</h6>
+                           <h4>Usage Analytics Platform (2021 — 2022)</h4>
                            <p>Designed an event-driven ETL pipeline using SNS, DynamoDB Streams, and Kinesis Data Firehose to feed customer engagement data into Redshift and QuickSight dashboards, supporting consumption-based billing insights across the product portfolio.</p>
                         </div>
                         <div class="experience-item">
                            <p class="year"><time datetime="2019">2019</time> — <time datetime="2021">2021</time></p>
-                           <h5>Software Engineer IV, ExamSoft (Acquired by Turnitin 2021) — Dallas, TX</h5>
+                           <h3>Software Engineer IV, ExamSoft (Acquired by Turnitin 2021) — Dallas, TX</h3>
                            <ul>
                               <li>Re-engineered high-volume assessment password management from WordPress to an auto-scaling AWS serverless architecture supporting hundreds of thousands of simultaneous credential requests.</li>
                               <li>Led Liftupp’s migration from a PHP monolith to AWS serverless Java microservices, reverse-engineering APIs and guiding database migration to RDS and DocumentDB.</li>
@@ -484,7 +484,7 @@
                         </div>
                         <div class="experience-item">
                            <p class="year"><time datetime="2018">2018</time> — <time datetime="2019">2019</time></p>
-                           <h5>Lead Software Developer (Consultant), Innovar Solutions — McKinney, TX</h5>
+                           <h3>Lead Software Developer (Consultant), Innovar Solutions — McKinney, TX</h3>
                            <ul>
                               <li>Architected and delivered a Symfony REST API and Vue.js SPA that unified commercial purchasing and scheduling workflows with real-time data synchronization.</li>
                               <li>Integrated and decommissioned legacy systems, reducing operational complexity and long-term technical debt.</li>
@@ -492,7 +492,7 @@
                         </div>
                         <div class="experience-item">
                            <p class="year"><time datetime="2010">2010</time> — <time datetime="2018">2018</time></p>
-                           <h5>Application Architect, Speed Commerce — Dallas, TX</h5>
+                           <h3>Application Architect, Speed Commerce — Dallas, TX</h3>
                            <ul>
                               <li>Architected enterprise fulfillment and warehouse systems supporting multi-million-square-foot distribution centers and thousands of concurrent users.</li>
                               <li>Designed event-driven order fulfillment and warehouse control systems with real-time integrations to PLCs, sortation equipment, and FedEx, UPS, and USPS.</li>
@@ -501,7 +501,7 @@
                         </div>
                         <div class="experience-item">
                            <p class="year"><time datetime="2000">2000</time> — <time datetime="2008">2008</time></p>
-                           <h5>Early Career</h5>
+                           <h3>Early Career</h3>
                            <ul>
                               <li>Senior PHP Developer — StoneEagle, Credit Solutions</li>
                               <li>Senior Developer / Engineering Lead — New Media Gateway, Crosswerk, Oven Digital</li>
@@ -512,7 +512,7 @@
                         </div>
                         <div class="experience-item">
                            <p class="year">Education</p>
-                           <h5>B.S., Business Administration — University of Texas at Dallas</h5>
+                           <h3>B.S., Business Administration — University of Texas at Dallas</h3>
                         </div>
                      </div>
                   </div>
@@ -680,73 +680,73 @@
                            <blockquote class="review-text" cite="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations/?detailScreenTabIndex=0">
                               <p>"He is without a doubt one of the best engineers I've worked with. He has a great ability to take something complicated, understand what actually matters, and come up with a solution that works well without adding unnecessary complexity. I would gladly work with him again in the future."</p>
                               <footer>
-                                 <cite><h4>Brandon Morrill — Principal Engineer, Property Vista</h4></cite>
+                                 <cite><h3>Brandon Morrill — Principal Engineer, Property Vista</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
                      </div>
                      <div class="swiper-slide">
                         <a class="review-wrap" href="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations" target="_blank" rel="noopener noreferrer" aria-label="Read recommendation by Max Gonzalez on LinkedIn (opens in a new tab)">
-                           <img src="img/testimonials/max_gonzalez.jpeg" alt="Max Gonzalez, Vice President Engineering at Turnitin" loading="lazy">
+                           <img src="img/testimonials/max_gonzalez.jpeg" alt="Max Gonzalez, Vice President Engineering at Turnitin" width="100" height="100" loading="lazy">
                            <blockquote class="review-text" cite="https://raines.io/#feedback">
                               <p>"Brian is an exceptional Software Engineer. His ability to develop top quality products that exceed expectations is second to none. He encourages his peers to step outside the box and develop innovative products that help move the business forward."</p>
                               <footer>
-                                 <cite><h4>Max Gonzalez — Vice President Engineering, Turnitin</h4></cite>
+                                 <cite><h3>Max Gonzalez — Vice President Engineering, Turnitin</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
                      </div>
                      <div class="swiper-slide">
                         <a class="review-wrap" href="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations" target="_blank" rel="noopener noreferrer" aria-label="Read recommendation by Blake Huber on LinkedIn (opens in a new tab)">
-                           <img src="img/testimonials/blake_huber.jpg" alt="Blake Huber, AWS Leader & DevOps Professional" loading="lazy">
+                           <img src="img/testimonials/blake_huber.jpg" alt="Blake Huber, AWS Leader & DevOps Professional" width="100" height="100" loading="lazy">
                            <blockquote class="review-text" cite="https://raines.io/#feedback">
                               <p>"Brian takes a holistic system engineering approach to design to strike the optimal trade-off between performance, reliability, and functionality. Overall, Brian is a rock-solid technical performer that delivers an end-to-end working solution, on time, with remarkable consistency."</p>
                               <footer>
-                                 <cite><h4>Blake Huber — AWS Leader & DevOps Professional</h4></cite>
+                                 <cite><h3>Blake Huber — AWS Leader & DevOps Professional</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
                      </div>
                      <div class="swiper-slide">
                         <a class="review-wrap" href="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations" target="_blank" rel="noopener noreferrer" aria-label="Read recommendation by Ben Lake on LinkedIn (opens in a new tab)">
-                           <img src="img/testimonials/ben_lake.jpg" alt="Ben Lake, Software Engineer Team Lead at IBM/SoftLayer" loading="lazy">
+                           <img src="img/testimonials/ben_lake.jpg" alt="Ben Lake, Software Engineer Team Lead at IBM/SoftLayer" width="100" height="100" loading="lazy">
                            <blockquote class="review-text" cite="https://raines.io/#feedback">
                               <p>"I could provide a short brief of a project and he'd take it to the finish line. When clarification was needed he came forward with clear and concise questions or concerns. Brian was also very willing to help others."</p>
                               <footer>
-                                 <cite><h4>Ben Lake — Software Engineer Team Lead, IBM/SoftLayer</h4></cite>
+                                 <cite><h3>Ben Lake — Software Engineer Team Lead, IBM/SoftLayer</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
                      </div>
                      <div class="swiper-slide">
                         <a class="review-wrap" href="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations" target="_blank" rel="noopener noreferrer" aria-label="Read recommendation by Jason Bradley on LinkedIn (opens in a new tab)">
-                           <img src="img/testimonials/jason_bradley.jpg" alt="Jason Bradley, Senior Web Developer at Innovar Solutions" loading="lazy">
+                           <img src="img/testimonials/jason_bradley.jpg" alt="Jason Bradley, Senior Web Developer at Innovar Solutions" width="100" height="100" loading="lazy">
                            <blockquote class="review-text" cite="https://raines.io/#feedback">
                               <p>"Each time Brian showed the leadership and technical knowledge to carry each product from conception to production. He completed projects and introduced modern, more efficient ways of managing development and technical resources."</p>
                               <footer>
-                                 <cite><h4>Jason Bradley — Senior Web Developer, Innovar Solutions</h4></cite>
+                                 <cite><h3>Jason Bradley — Senior Web Developer, Innovar Solutions</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
                      </div>
                      <div class="swiper-slide">
                         <a class="review-wrap" href="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations" target="_blank" rel="noopener noreferrer" aria-label="Read recommendation by Paul Bruno on LinkedIn (opens in a new tab)">
-                           <img src="img/testimonials/paul_bruno.jpg" alt="Paul Bruno, Lead Software Engineer at Slync.io" loading="lazy">
+                           <img src="img/testimonials/paul_bruno.jpg" alt="Paul Bruno, Lead Software Engineer at Slync.io" width="100" height="100" loading="lazy">
                            <blockquote class="review-text" cite="https://raines.io/#feedback">
                               <p>"He anchored the development team with leadership skills and programming smarts rarely found in one developer simultaneously. I don't think I could recommend Brian more highly."</p>
                               <footer>
-                                 <cite><h4>Paul Bruno — Lead Software Engineer, Slync.io</h4></cite>
+                                 <cite><h3>Paul Bruno — Lead Software Engineer, Slync.io</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
                      </div>
                      <div class="swiper-slide">
                         <a class="review-wrap" href="https://www.linkedin.com/in/brian-raines-0669913/details/recommendations" target="_blank" rel="noopener noreferrer" aria-label="Read recommendation by Jason Catlett on LinkedIn (opens in a new tab)">
-                           <img src="img/testimonials/jason_catlett.jpg" alt="Jason Catlett, Senior Data Architect at CallRail" loading="lazy">
+                           <img src="img/testimonials/jason_catlett.jpg" alt="Jason Catlett, Senior Data Architect at CallRail" width="100" height="100" loading="lazy">
                            <blockquote class="review-text" cite="https://raines.io/#feedback">
                               <p>"His design and implementation were excellent and any issues we had between the UI and database layers were quickly resolved. His excellent communication skills helped make my introduction into the existing team very productive."</p>
                               <footer>
-                                 <cite><h4>Jason Catlett — Senior Data Architect, CallRail</h4></cite>
+                                 <cite><h3>Jason Catlett — Senior Data Architect, CallRail</h3></cite>
                               </footer>
                            </blockquote>
                         </a>
@@ -769,27 +769,27 @@
                      <div class="contact-grid">
                         <div class="card-contact">
                            <i class="fa fa-phone" aria-hidden="true"></i>
-                           <h4>Call</h4>
+                           <h3>Call</h3>
                            <p><a href="tel:+12147070983">(214) 707-0983</a></p>
                         </div>
                         <div class="card-contact">
                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                           <h4>Email</h4>
+                           <h3>Email</h3>
                            <p><a href="mailto:brian@raines.io">brian@raines.io</a></p>
                         </div>
                         <div class="card-contact">
                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                           <h4>Location</h4>
+                           <h3>Location</h3>
                            <p><address>Plano, TX</address></p>
                         </div>
                         <div class="card-contact">
                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                           <h4>Resume</h4>
+                           <h3>Resume</h3>
                            <p><a href="resume/Brian_Raines_Resume.pdf" rel="alternate" type="application/pdf" download="Brian_Raines_Resume.pdf">Download PDF</a></p>
                         </div>
                         <div class="card-contact">
                            <i class="fa fa-id-card-o" aria-hidden="true"></i>
-                           <h4>vCard</h4>
+                           <h3>vCard</h3>
                            <p><a href="vcard/Brian_Raines.vcf" type="text/vcard" download="Brian_Raines.vcf">Save Contact</a></p>
                         </div>
                      </div>
@@ -803,20 +803,22 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-12 col-xs-12 text-center">
-                     <h4>Copyright &copy; Brian Raines. All rights reserved.</h4>
+                     <p class="copyright">Copyright &copy; Brian Raines. All rights reserved.</p>
                   </div>
                </div>
             </div>
          </footer>
       </main>
       <!-- End of Main Wrapper Section -->
-      <script src="js/jquery-3.7.1.js"></script>
+      <script src="js/jquery-3.7.1.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <script src="js/common.js"></script>
+      <script>
+         if (window.bootstrap && window.bootstrap.Collapse) {
+            document.documentElement.classList.add('navigation-ready');
+         }
+      </script>
       <script src="js/gumshoe.js"></script>
       <script src="js/swiper-bundle.min.js"></script>
-      <script src="js/jquery.magnific-popup.min.js"></script>
-      <script src="js/jquery.filterizr.min.js"></script>
       <script src="js/main.js"></script>
       <!-- Gumshoe script -->
       <script>
