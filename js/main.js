@@ -2,14 +2,13 @@ $(document) .ready(function() {
    /*Sidebar Menu*/
    "use strict";
 
-   /*Preloader*/
-   $(".preloader-wrap").delay(1500).fadeOut('slow');
-
+   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /*Swiper*/
    var swiper = new Swiper('.swiper', {
      spaceBetween: 30,
      autoplay: {
+      enabled: !reducedMotion.matches,
       delay: 4000,
      },
      breakpoints: {
@@ -32,6 +31,8 @@ $(document) .ready(function() {
    function updateAutoplay() {
      if (hoveredCard || hasCardFocus) {
        interactionPaused = true;
+       swiper.autoplay.stop();
+     } else if (reducedMotion.matches) {
        swiper.autoplay.stop();
      } else if (interactionPaused) {
        interactionPaused = false;
@@ -74,63 +75,37 @@ $(document) .ready(function() {
      }
    });
 
-  /*Magnific Popup*/
-   $(function() {
-    if ($('div.work').length) {
-      $('div.work').magnificPopup({delegate: 'a',
-        type: 'image',
-        gallery: {
-          enabled: false
-        },
-        removalDelay: 300,
-        mainClass: 'mfp-fade'
-      });
-    }
+  // The initial hero comes from CSS; only fetch another image while it is visible.
+   var hero = document.querySelector('.hero-rotating');
+   var heroImageBase = new URL('img/hero/', document.baseURI).href;
+   var heroVisible = false;
+   var heroRotation = null;
+   function rotateHero() {
+     var number = Math.floor(Math.random() * 9) + 1;
+     hero.style.setProperty('--hero-image', 'url("' + heroImageBase + 'hero-0' + number + '.webp")');
+     hero.style.setProperty('--hero-small-image', 'url("' + heroImageBase + 'hero-0' + number + '-960.webp")');
+   }
+   function updateHeroRotation() {
+     if (heroRotation !== null) {
+       clearInterval(heroRotation);
+       heroRotation = null;
+     }
+     if (heroVisible && !document.hidden && !reducedMotion.matches) {
+       heroRotation = setInterval(rotateHero, 5000);
+     }
+   }
+   var heroObserver = new IntersectionObserver(function(entries) {
+     heroVisible = entries[0].isIntersecting;
+     updateHeroRotation();
    });
-
-   $(document).ready(function() {
-    if ($('.popup-youtube, .popup-vimeo, .popup-gmaps').length) {
-      $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-          type: 'iframe',
-          mainClass: 'mfp-fade',
-          removalDelay: 160,
-          preloader: false,
-          fixedContentPos: true
-      });
-    }
+   heroObserver.observe(hero);
+   document.addEventListener('visibilitychange', updateHeroRotation);
+   reducedMotion.addEventListener('change', function() {
+     updateHeroRotation();
+     updateAutoplay();
+     if (!reducedMotion.matches && !hoveredCard && !hasCardFocus) {
+       swiper.autoplay.start();
+     }
    });
-
-  var filterContainer = $('.filtr-container');
-  if (filterContainer.length) {
-    filterContainer.filterizr({
-       layout: 'sameSize',
-       gridItemsSelector: '.filtr-item',
-       gutterPixels: 20,
-       selector: '.filtr-container',
-       setupControls: true
-    });
-  }
-
-  function rotateHero() {
-    // get a number between 1 and 9
-    var number = Math.floor(Math.random() * 9) + 1;
-    // set the background image to the new image with an ease in and out effect
-    document.querySelector('.hero-rotating').style.transition = 'background-image 0.5s ease-in-out';
-    document.querySelector('.hero-rotating').style.backgroundImage = 'url(img/hero/hero-0' + number + '.webp)';
-  }
-
-  rotateHero();
-
-  /*Hero Rotation*/
-  var heroRotation = setInterval(function() {
-    rotateHero();
-  }, 5000);
-
-  /* About Photo */
-  // get a number between 1 and 10
-  var aboutPhotoNumber = Math.floor(Math.random() * 11) + 1;
-  // set the background image to the new image with an ease in and out effect
-
-  document.querySelector('.about-photo img').src = 'img/bulldog/' + aboutPhotoNumber + '.png';
 
 });

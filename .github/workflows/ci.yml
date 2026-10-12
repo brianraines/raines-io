@@ -27,10 +27,16 @@ jobs:
         run: npm ci
       - name: Install Chromium and system dependencies
         run: npx playwright install --with-deps chromium
+      - name: Install Apache for hosting regression checks
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y apache2
       - name: Test website
         run: npm test
         env:
           CI: 'true'
+      - name: Test Apache redirects and caching
+        run: npm run test:apache
       - name: Upload test report and failure traces
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

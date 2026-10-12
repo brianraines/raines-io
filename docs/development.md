@@ -44,9 +44,11 @@ Use role/name locators and observable outcomes. Avoid assertions tied to inciden
 
 The configuration follows Playwright's [web server](https://playwright.dev/docs/test-webserver), [projects](https://playwright.dev/docs/test-projects), and [CI](https://playwright.dev/docs/ci) guidance.
 
+The SEO regression tests also cover failed/disabled scripts, fallback navigation and downloads, reduced motion, offscreen image rotation, crawl files, structured identity, heading order, image sizing, and a local JavaScript budget. Run `npm run test:apache` separately to check actual Apache redirects and caching on temporary loopback HTTP/HTTPS servers; this requires Apache and OpenSSL. On Linux, install the `apache2` package. The standard `npm test` server intentionally remains the Node static server. See [technical SEO changes](seo-technical-changes.md) for configuration activation and rollback details.
+
 ## CI and production hosting
 
-`.github/workflows/ci.yml` installs locked dependencies and Chromium, runs the same suite on pushes and pull requests, and uploads reports and failure traces for 14 days. It uses read-only repository permissions and pinned action revisions. It becomes active once pushed to GitHub. It does not deploy the site.
+`.github/workflows/ci.yml` installs locked dependencies, Chromium, and Apache, runs the browser/Node suite and the separate Apache hosting checks on pushes and pull requests, and uploads reports and failure traces for 14 days. It uses read-only repository permissions and pinned action revisions. It becomes active once pushed to GitHub. It does not deploy the site.
 
 Production `https://raines.io` is hosted on the Linode VM shared with Stableishwater, as confirmed by Brian. No automatic Linode deployment workflow is checked into this repository. The verified Apache document root, SSH context, scoped release and rollback procedure are documented in [publication.md](publication.md). Scope deployment to this website's files and directory on the shared VM.
 

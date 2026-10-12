@@ -4,15 +4,15 @@
     "fileId": "1UJJjGHyt_VwZ6xB4fJHmDn1T5qSgoNIP",
     "modifiedTime": "2026-10-09T14:49:17.898Z"
   },
-  "reviewedAt": "2026-10-11",
+  "reviewedAt": "2026-10-12",
   "files": [
     {
       "path": "index.html",
-      "sha256": "c77215e47f60c672ba0ec35f1a4ad297b8c41da6c8fa4f44755ce86d632d85cc"
+      "sha256": "ad6f5d59076dc82c0049c24918acd0df9eeebecaf524f880416d363f7b08b9b7"
     },
     {
       "path": "css/main.css",
-      "sha256": "18b12aac6dcd9b59a39a9a2c2c19c8801e6a78672694ae0e8ab46e05e0b18388"
+      "sha256": "22581c47bcbe6c280215aa24a2e70f8ff6422e5e37fef841d0553f3725ba97a3"
     },
     {
       "path": "resume/Brian_Raines_Resume.pdf",
@@ -28,7 +28,7 @@
     },
     {
       "path": "js/main.js",
-      "sha256": "d3da15dd7134dd5bedb63f6ffb12d6c414dceb1add87a425a9e7b419bb1fc756"
+      "sha256": "b34e1244de6867dc50cf1fc619217fb318b9a29b91d028d7606bd36a94a35556"
     },
     {
       "path": "img/og-card.jpg",
@@ -121,6 +121,54 @@
     {
       "path": "img/logo.png",
       "sha256": "e7628df88657b184fc807abcc6038f35ede21106329d816c8aaf87526570fe24"
+    },
+    {
+      "path": "robots.txt",
+      "sha256": "002ea71b3ace40ced1645bfec9ae54a7714162735f79c52ebfb313412a690cde"
+    },
+    {
+      "path": "sitemap.xml",
+      "sha256": "a5375cfb7d7add3a89e2e5cc93b1721c3deee55817fa79662ed7793db037ecbf"
+    },
+    {
+      "path": "js/jquery-3.7.1.min.js",
+      "sha256": "fc9a93dd241f6b045cbff0481cf4e1901becd0e12fb45166a8f17f95823f0b1a"
+    },
+    {
+      "path": "img/hero/hero-01-960.webp",
+      "sha256": "cfc17ea008f306ca5e3a1926b771e27db7472dee6f5615e9566288d65389225c"
+    },
+    {
+      "path": "img/hero/hero-02-960.webp",
+      "sha256": "6ac1fd147ea345c1821a0fcdbc2e42dcc2c4777e1a88354cfbade1e6da23db24"
+    },
+    {
+      "path": "img/hero/hero-03-960.webp",
+      "sha256": "ab2466094f8ff4175a3d1ab9b10a0b907a19af16279a7cce0c18d2652a061559"
+    },
+    {
+      "path": "img/hero/hero-04-960.webp",
+      "sha256": "d50e9384da0b3ded44b495707ed552480c87f25900bb8f66bf4da12aa00a298e"
+    },
+    {
+      "path": "img/hero/hero-05-960.webp",
+      "sha256": "73df96bcf05541af4eb5e4ae0e3aea246a6d32aaa0ea8eae1181c4e582dd4532"
+    },
+    {
+      "path": "img/hero/hero-06-960.webp",
+      "sha256": "ae94b9ada8fa4dd7373f97626d1f8bfd6a6780704952b1abcc260fe4c9c55314"
+    },
+    {
+      "path": "img/hero/hero-07-960.webp",
+      "sha256": "3926a60a4d0f585f18fa94a51a67e2e2e8025ae922ba9a599668f10fc56ff486"
+    },
+    {
+      "path": "img/hero/hero-08-960.webp",
+      "sha256": "f85188a9c09ca492507394a9b611cc4458399aa0f2e551dee3a7b48155161f31"
+    },
+    {
+      "path": "img/hero/hero-09-960.webp",
+      "sha256": "99361041a3705951849f197442b22b7f4be0c6cf1c30c7a81af6403f86b3a7e1"
     }
   ]
 }

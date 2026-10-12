@@ -59,91 +59,6 @@ a:focus {
     padding: 0 50px;
 }
 
-.preloader-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: #0C0C0C;
-    z-index: 9999;
-    overflow: hidden;
-}
-
-.preloader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80px;
-    height: 60px;
-    margin: -30px 0 0 -40px;
-}
-
-.preloader .lines {
-    width: 80px;
-    height: 40px;
-    position: absolute;
-}
-
-.preloader .lines .line {
-    width: 90px;
-    height: 15px;
-    background-color: #fff;
-    position: absolute;
-    clip: rect(0,0,20px,0);
-}
-
-.preloader .lines .line.line-1 {
-    top: 0;
-    animation: slide 2s ease 0.1s infinite;
-}
-
-.preloader .lines .line.line-2 {
-    top: 15px;
-    animation: slide 2s ease .25s infinite;
-}
-
-.preloader .lines .line.line-3 {
-    top: 30px;
-    animation: slide 2s ease .5s infinite;
-}
-
-.preloader .loading-text {
-    position: absolute;
-    top: 50px;
-    text-align: center;
-    width: 100%;
-    color: #fff;
-    font-size: 14px;
-    font-family: "Montserrat",sans-serif;
-    letter-spacing: 1px;
-    line-height: 10px;
-    height: 10px;
-    text-transform: uppercase;
-}
-
-@keyframes slide {
-    0% {
-        clip: rect(0,0,20px,0);
-    }
-
-    30% {
-        clip: rect(0,80px,20px,0);
-    }
-
-    50% {
-        clip: rect(0,80px,20px,0);
-    }
-
-    80% {
-        clip: rect(0,80px,20px,80px);
-    }
-
-    100% {
-        clip: rect(0,80px,20px,80px);
-    }
-}
-
 @keyframes fade {
     0% {
         opacity: 1;
@@ -192,7 +107,8 @@ li, p {
 /******** HEADER SECTION START ********/
 
 .header {
-	background:  no-repeat center center;
+	background: no-repeat center center;
+    background-image: var(--hero-image, url('../img/hero/hero-01.webp'));
 	background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -202,24 +118,14 @@ li, p {
     margin: 0;
     overflow: hidden;
 }
-/*
 .hero-rotating {
-     animation: hero-rotate 180s infinite;
-     animation-timing-function: ease-in-out;
+    transition: background-image 0.5s ease-in-out;
 }
-
-@keyframes hero-rotate {
-     0%, 11%      { background-image: url('../img/hero/hero-01.webp'); }
-     11.1%, 22%   { background-image: url('../img/hero/hero-02.webp'); }
-     22.1%, 33%   { background-image: url('../img/hero/hero-03.webp'); }
-     33.1%, 44%   { background-image: url('../img/hero/hero-04.webp'); }
-     44.1%, 55%   { background-image: url('../img/hero/hero-05.webp'); }
-     55.1%, 66%   { background-image: url('../img/hero/hero-06.webp'); }
-     66.1%, 77%   { background-image: url('../img/hero/hero-07.webp'); }
-     77.1%, 88%   { background-image: url('../img/hero/hero-08.webp'); }
-     88.1%, 100%  { background-image: url('../img/hero/hero-09.webp'); }
+@media (max-width: 767.98px) {
+    .header {
+        background-image: image-set(var(--hero-small-image, url('../img/hero/hero-01-960.webp')) 1x, var(--hero-image, url('../img/hero/hero-01.webp')) 2x);
+    }
 }
-*/
 
 .header-wrapper {
     -webkit-transform: translate(-50%,-50%);
@@ -525,6 +431,7 @@ section p:first-of-type {
 
 .about-photo img {
     width: 100%;
+    height: auto;
     max-width: 240px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -668,7 +575,8 @@ tr > td:nth-child(2) {
     display: inline-block;
 }
 
-.card-skill h4 {
+.card-skill h3 {
+    letter-spacing: normal;
     font-size: 14pt;
     font-weight: 700;
     margin: 0 0 8px 0;
@@ -781,7 +689,7 @@ tr > td:nth-child(2) {
     margin: 0 0 8px 0;
 }
 
-.resume h5 {
+.resume h3 {
     font-size: 14pt;
     font-weight: 700;
     letter-spacing: 0.4pt;
@@ -804,7 +712,7 @@ tr > td:nth-child(2) {
     background-color: #969595;
 }
 
-.resume h6 {
+.resume h4 {
     margin-top: 10px;
     margin-bottom: 8px;
 }
@@ -820,7 +728,7 @@ tr > td:nth-child(2) {
     gap: 35px;
 }
 
-.experience-item h6 {
+.experience-item h4 {
     font-size: 12pt;
     font-weight: 700;
     margin-top: 10px;
@@ -1107,7 +1015,8 @@ tr > td:nth-child(2) {
     line-height: 19pt;
 }
 
-.swiper-wrapper h4 {
+.swiper-wrapper h3 {
+    letter-spacing: inherit;
     margin-top: 18px;
     font-size: 12pt;
     font-weight: 700;
@@ -1229,7 +1138,11 @@ tr > td:nth-child(2) {
     letter-spacing: 1pt;
 }
 
-.card-contact h4 {
+.contact .card-contact h3 {
+    color: #1b1b1b;
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 1pt;
     margin-top: 0;
     margin-bottom: 2px;
 }
@@ -1346,7 +1259,10 @@ footer .container {
     padding-bottom: 0;
 }
 
-footer h4 {
+footer .copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
     font-size: 8pt;
     letter-spacing: 1pt;
     margin: 0;
@@ -1498,9 +1414,6 @@ footer h4 {
     }
 
     @media only screen and (max-width : 375px) {
-        .preloader {
-            margin: -30px 0 0 -25px;
-        }
         .header-wrapper {
           -webkit-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
@@ -1528,9 +1441,6 @@ footer h4 {
 
 /* Custom, iPhone Retina */
     @media only screen and (max-width : 320px) {
-        .preloader {
-            margin: -30px 0 0 -30px;
-        }
         .header-wrapper {
           -webkit-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
@@ -1728,5 +1638,39 @@ footer h4 {
         font-size: 24px;
         letter-spacing: 2px;
         line-height: 1.4;
+    }
+}
+
+/* Navigation remains available until Bootstrap can enhance it. */
+html:not(.navigation-ready) .navbar-collapse {
+    display: block;
+}
+
+@media (max-width: 991.98px) {
+    html:not(.navigation-ready) .navbar {
+        position: relative;
+    }
+    html:not(.navigation-ready) .navbar-toggler {
+        display: none;
+    }
+}
+
+.about .social-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1pt;
+    line-height: 1.2;
+    margin: 20px 0 8px;
+    padding: 0;
+    color: #212529;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-rotating, .swiper-wrapper .review-wrap {
+        transition: none;
+    }
+    .scroll-icon {
+        animation: none;
     }
 }
